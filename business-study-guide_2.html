@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAIE AS Business 9609 — Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #3d3530;
+    --paper: #f5efe6;
+    --paper-warm: #ede4d3;
+    --accent: #b03a2e;
+    --accent-deep: #7d1f15;
+    --gold: #c9a14a;
+    --sage: #5e7350;
+    --indigo: #2c3e5c;
+    --rose: #c97b8c;
+    --line: rgba(26, 20, 16, 0.12);
+    --line-strong: rgba(26, 20, 16, 0.25);
+    --shadow: 0 1px 2px rgba(26, 20, 16, 0.04), 0 8px 24px rgba(26, 20, 16, 0.08);
+    --shadow-lg: 0 4px 12px rgba(26, 20, 16, 0.06), 0 24px 48px rgba(26, 20, 16, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201, 161, 74, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(176, 58, 46, 0.04) 0%, transparent 50%);
+  }
+
+  /* ===== NAVIGATION ===== */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 239, 230, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .brand::before {
+    content: '';
+    width: 28px; height: 28px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  .nav-links button {
+    font-family: 'Inter Tight', sans-serif;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--ink-soft);
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .nav-links button:hover {
+    background: var(--paper-warm);
+    color: var(--ink);
+  }
+  .nav-links button.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ===== PAGES ===== */
+  .page {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+    animation: fadeIn 0.4s ease;
+  }
+  .page.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  h1.display {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+  h1.display em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  h3.topic-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  h3.topic-title .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin: 1.4rem 0 0.6rem;
+    color: var(--ink);
+  }
+  p.lead {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+  p { margin-bottom: 0.8rem; color: var(--ink-soft); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    padding: 4rem 0 5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+  .meta-item .label {
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .meta-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .hero-mark {
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    text-align: right;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc {
+    margin-top: 4rem;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .toc-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    padding: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .toc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+  .toc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    background: #fff;
+  }
+  .toc-card:hover::before { transform: scaleY(1); }
+  .toc-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .toc-card h4 {
+    margin: 0.4rem 0 0.6rem;
+    font-size: 1.2rem;
+  }
+  .toc-card p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ===== FLASHCARDS ===== */
+  .flashcard-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 2rem 0;
+    padding: 1.2rem;
+    background: var(--paper-warm);
+    border-radius: 12px;
+    align-items: center;
+  }
+  .filter-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-right: 0.5rem;
+  }
+  .filter-btn {
+    font-family: 'Inter Tight', sans-serif;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .flashcard-search {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid var(--line-strong);
+    background: white;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    outline: none;
+  }
+  .flashcard-search:focus { border-color: var(--accent); }
+
+  .flashcard-stats {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.08em;
+  }
+  .flashcard-stats .current {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  /* === QUIZLET-STYLE STUDY DECK === */
+  .deck-stage {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .flashcard {
+    background: transparent;
+    width: 100%;
+    height: 460px;
+    perspective: 2000px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 18px;
+    padding: 3rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+  .flashcard-front {
+    background: linear-gradient(135deg, #fff 0%, var(--paper-warm) 100%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .flashcard-back {
+    background: linear-gradient(135deg, var(--ink) 0%, #2a2018 100%);
+    color: var(--paper);
+    transform: rotateY(180deg);
+    border-color: var(--ink);
+    justify-content: center;
+  }
+  .card-tag {
+    position: absolute;
+    top: 1.6rem;
+    left: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .flashcard-back .card-tag { color: var(--gold); }
+  .card-term {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    max-width: 100%;
+  }
+  .card-def {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
+    color: var(--paper);
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+  .card-flip-hint {
+    position: absolute;
+    bottom: 1.6rem;
+    right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+  .flashcard-back .card-flip-hint { color: rgba(245, 239, 230, 0.5); }
+
+  /* Navigation controls */
+  .deck-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .nav-arrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: white;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .nav-arrow:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    transform: scale(1.05);
+  }
+  .nav-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .deck-progress {
+    flex: 1;
+    max-width: 360px;
+    height: 6px;
+    background: var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .deck-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .deck-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .deck-action-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+  .deck-action-btn:hover {
+    background: var(--paper-warm);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 640px) {
+    .flashcard { height: 380px; }
+    .flashcard-front, .flashcard-back { padding: 2.5rem 1.8rem; }
+    .nav-arrow { width: 48px; height: 48px; }
+  }
+
+  /* ===== CONTENT BLOCKS ===== */
+  .content-block {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow);
+  }
+  .content-block.warm { background: var(--paper-warm); }
+  .content-block.dark { background: var(--ink); color: var(--paper); }
+  .content-block.dark p, .content-block.dark li { color: var(--paper); }
+  .content-block.dark h4 { color: var(--gold); }
+
+  ul.styled, ol.styled {
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0;
+  }
+  ul.styled li, ol.styled li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  ul.styled li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.95rem;
+    width: 8px; height: 1px;
+    background: var(--accent);
+  }
+  ol.styled { counter-reset: item; }
+  ol.styled li {
+    padding-left: 2.2rem;
+    counter-increment: item;
+  }
+  ol.styled li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ===== TABLES ===== */
+  .data-table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: white;
+  }
+  table.data-table th {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: left;
+    padding: 0.85rem 1rem;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  table.data-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  table.data-table tr:last-child td { border-bottom: none; }
+  table.data-table tr:nth-child(even) td { background: var(--paper); }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+  .pros, .cons {
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .pros {
+    background: rgba(94, 115, 80, 0.08);
+    border-color: rgba(94, 115, 80, 0.3);
+  }
+  .cons {
+    background: rgba(176, 58, 46, 0.06);
+    border-color: rgba(176, 58, 46, 0.25);
+  }
+  .pros h5, .cons h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.7rem;
+  }
+  .pros h5 { color: var(--sage); }
+  .cons h5 { color: var(--accent); }
+
+  /* ===== INTERACTIVE GRAPHS ===== */
+  .interactive-section {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-lg);
+  }
+  .chart-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  .chart-tab {
+    font-family: 'Inter Tight', sans-serif;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .chart-tab.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .chart-container {
+    position: relative;
+    height: 380px;
+    margin: 1rem 0;
+  }
+  .chart-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .chart-meta-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
+  }
+  .chart-meta-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .chart-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    align-items: center;
+  }
+  .chart-controls label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .chart-controls input[type="range"] {
+    width: 200px;
+    accent-color: var(--accent);
+  }
+  .chart-controls input[type="number"] {
+    width: 80px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--paper-warm);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .callout .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .callout p { margin: 0; color: var(--ink); }
+
+  /* ===== FORMULA ===== */
+  .formula {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 1.4rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+    overflow-x: auto;
+  }
+  .formula .var { color: var(--gold); }
+  .formula .op { color: var(--rose); }
+
+  /* ===== UTIL ===== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .pros-cons { grid-template-columns: 1fr; }
+    .topnav-inner { flex-direction: column; align-items: flex-start; }
+    .nav-links { width: 100%; overflow-x: auto; flex-wrap: nowrap; }
+    .page { padding: 2rem 1.2rem 4rem; }
+    .hero-mark { position: static; margin-bottom: 1rem; text-align: left; }
+  }
+
+  /* Glossary overlay */
+  .definition {
+    border-bottom: 1px dotted var(--accent);
+    cursor: help;
+    transition: color 0.2s;
+  }
+  .definition:hover { color: var(--accent); }
+
+  /* Section divider */
+  .divider {
+    margin: 4rem 0;
+    text-align: center;
+    color: var(--line-strong);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">CAIE Business 9609</div>
+    <ul class="nav-links">
+      <li><button class="nav-btn active" data-page="home">Home</button></li>
+      <li><button class="nav-btn" data-page="flashcards">Flashcards</button></li>
+      <li><button class="nav-btn" data-page="t1">T1 · Environment</button></li>
+      <li><button class="nav-btn" data-page="t2">T2 · HR</button></li>
+      <li><button class="nav-btn" data-page="t3">T3 · Marketing</button></li>
+      <li><button class="nav-btn" data-page="t4">T4 · Operations</button></li>
+      <li><button class="nav-btn" data-page="t5">T5 · Finance</button></li>
+      <li><button class="nav-btn" data-page="graphs">Graphs</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================== -->
+<!-- ===== HOME PAGE                          ===== -->
+<!-- ============================================== -->
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="hero-mark">9609 · AS LEVEL · 2026–2028</div>
+    <div class="eyebrow">Cambridge International AS Business</div>
+    <h1 class="display">A study<br>companion <em>for</em> the<br>thinking student.</h1>
+    <p class="lead">Five topics. Seventy-six concepts. Hundreds of definitions. Distilled into flashcards, interactive graphs, and revision notes — built for the way you actually study.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="label">Topics</div>
+        <div class="value">05</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Flashcards</div>
+        <div class="value">200+</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Interactive Charts</div>
+        <div class="value">08</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Syllabus</div>
+        <div class="value">2026–28</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="eyebrow">Contents</div>
+    <h2 class="section-title">Five topics, end to end.</h2>
+    <p>Tap any card to enter that section. Each topic includes condensed revision notes, key definitions, and where helpful, interactive visualisations.</p>
+
+    <div class="toc-grid">
+      <div class="toc-card" data-go="flashcards">
+        <div class="num">00 · UTILITY</div>
+        <h4>Flashcards</h4>
+        <p>Every key term across topics 1–5. Filter by topic, search by keyword, click to flip.</p>
+      </div>
+      <div class="toc-card" data-go="t1">
+        <div class="num">01 · TOPIC ONE</div>
+        <h4>Business & its Environment</h4>
+        <p>Enterprise, structure, size, objectives, stakeholders. The grounding chapters.</p>
+      </div>
+      <div class="toc-card" data-go="t2">
+        <div class="num">02 · TOPIC TWO</div>
+        <h4>Human Resource Management</h4>
+        <p>Recruitment, motivation, leadership theories from Taylor through to McGregor.</p>
+      </div>
+      <div class="toc-card" data-go="t3">
+        <div class="num">03 · TOPIC THREE</div>
+        <h4>Marketing</h4>
+        <p>The four Ps, product life cycle, segmentation, market research, and the Boston Matrix.</p>
+      </div>
+      <div class="toc-card" data-go="t4">
+        <div class="num">04 · TOPIC FOUR</div>
+        <h4>Operations Management</h4>
+        <p>Production methods, inventory control, capacity utilisation, outsourcing.</p>
+      </div>
+      <div class="toc-card" data-go="t5">
+        <div class="num">05 · TOPIC FIVE</div>
+        <h4>Finance & Accounting</h4>
+        <p>Sources of finance, cash flow forecasting, costing methods, break-even, budgets.</p>
+      </div>
+      <div class="toc-card" data-go="graphs">
+        <div class="num">06 · INTERACTIVE</div>
+        <h4>Visual Analysis</h4>
+        <p>PLC for three product types, demand & supply, break-even — all explorable.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · · · ·</div>
+
+  <div class="content-block warm">
+    <div class="eyebrow">How to use this</div>
+    <h4 style="margin-top:0">A short note on study method</h4>
+    <p>Definitions alone don't make a grade. Flashcards build recognition; revision notes build understanding; the graphs help you see <em>why</em> a curve shifts. Use all three. Self-test before re-reading. And remember: every concept here exists because an examiner can ask about it.</p>
+  </div>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== FLASHCARDS PAGE                    ===== -->
+<!-- ============================================== -->
+<section id="flashcards" class="page">
+  <div class="eyebrow">00 · Definitions Library</div>
+  <h2 class="section-title">Flashcards</h2>
+  <p class="lead">Every key term from Topics 1–5. Click any card to reveal the definition. Use the filters or search to narrow down.</p>
+
+  <div class="flashcard-controls">
+    <span class="filter-label">Topic</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="t1">Topic 1</button>
+    <button class="filter-btn" data-filter="t2">Topic 2</button>
+    <button class="filter-btn" data-filter="t3">Topic 3</button>
+    <button class="filter-btn" data-filter="t4">Topic 4</button>
+    <button class="filter-btn" data-filter="t5">Topic 5</button>
+    <input type="text" class="flashcard-search" placeholder="Search terms…" id="cardSearch">
+  </div>
+
+  <div class="flashcard-stats" id="cardStats"></div>
+
+  <div class="deck-stage" id="deckStage">
+    <div class="flashcard" id="activeCard" onclick="flipCard()">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="card-tag" id="cardTagFront">Topic 1</div>
+          <div class="card-term" id="cardTerm">—</div>
+          <div class="card-flip-hint">Click to flip ↻</div>
+        </div>
+        <div class="flashcard-back">
+          <div class="card-tag" id="cardTagBack">Definition</div>
+          <div class="card-def" id="cardDef">—</div>
+          <div class="card-flip-hint">Click to flip ↺</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-controls">
+      <button class="nav-arrow" id="prevCard" onclick="navigateCard(-1)" aria-label="Previous">←</button>
+      <div class="deck-progress"><div class="deck-progress-fill" id="progressFill"></div></div>
+      <button class="nav-arrow" id="nextCard" onclick="navigateCard(1)" aria-label="Next">→</button>
+    </div>
+
+    <div class="deck-actions">
+      <button class="deck-action-btn" onclick="shuffleDeck()">⤭ Shuffle</button>
+      <button class="deck-action-btn" onclick="resetDeck()">↺ Reset to start</button>
+    </div>
+  </div>
+
+  <div class="no-results" id="noResults" style="display:none">No cards match your search.</div>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== TOPIC 1: BUSINESS & ITS ENVIRONMENT  ===== -->
+<!-- ============================================== -->
+<section id="t1" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">TOPIC 01 / 05</div>
+    <div class="eyebrow">Topic One</div>
+    <h1 class="display">Business <em>&</em> its<br>environment.</h1>
+    <p class="lead">The five chapters that ground everything else: enterprise, structure, size, objectives, and stakeholders.</p>
+  </div>
+
+  <!-- Chapter 1 Enterprise -->
+  <h3 class="topic-title"><span class="num">CH 1</span>Enterprise</h3>
+
+  <h4>Purpose of business activity</h4>
+  <p>Businesses exist to <strong>add value</strong> to raw materials and semi-finished goods to satisfy consumer needs and wants. This activity raises living standards by creating employment.</p>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">The four factors of production</h4>
+    <ol class="styled">
+      <li><strong>Land</strong> — natural resources used in production. Return: <em>rent</em>.</li>
+      <li><strong>Labour</strong> — manual and skilled work. Return: <em>wages/salary</em>.</li>
+      <li><strong>Capital</strong> — finance and man-made goods like machinery. Return: <em>interest</em>.</li>
+      <li><strong>Enterprise</strong> — the driving force that arranges the other three and bears risk. Return: <em>profit</em>.</li>
+    </ol>
+  </div>
+
+  <h4>Added value</h4>
+  <div class="formula">added value <span class="op">=</span> <span class="var">selling price</span> <span class="op">−</span> <span class="var">cost of bought-in materials</span></div>
+  <p>Increase added value by either raising selling price (better quality, advertising, packaging, USP) or lowering cost (lean production, cheaper supplies, training, automation).</p>
+
+  <h4>Why new businesses fail</h4>
+  <div class="grid-2">
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem">Internal problems</h5>
+      <ul class="styled">
+        <li>Weak business idea</li>
+        <li>Lack of managerial / entrepreneurial skills</li>
+        <li>Insufficient finance</li>
+        <li>Poor cash-flow management</li>
+        <li>Poor initial market research</li>
+      </ul>
+    </div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem">External problems</h5>
+      <ul class="styled">
+        <li>Anticipated customers didn't materialise</li>
+        <li>Spending patterns changed</li>
+        <li>Unexpected competition</li>
+        <li>Economic / legal / technological shifts</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Entrepreneur vs intrapreneur</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th></th><th>Entrepreneur</th><th>Intrapreneur</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Purpose</strong></td><td>Set up a new business</td><td>Innovate within an existing one</td></tr>
+        <tr><td><strong>Risk falls on</strong></td><td>The entrepreneur personally</td><td>The business (reputation, investment)</td></tr>
+        <tr><td><strong>Reward</strong></td><td>Profit</td><td>Promotion, pay rise, share of profit</td></tr>
+        <tr><td><strong>Key qualities</strong></td><td>Innovative, self-motivated, leadership, resilience</td><td>Passionate, resourceful, independent, proactive</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 2 Structure -->
+  <h3 class="topic-title"><span class="num">CH 2</span>Business Structure</h3>
+
+  <h4>Sectors of activity</h4>
+  <ul class="styled">
+    <li><strong>Primary</strong> — extracting natural resources (farming, fishing, mining)</li>
+    <li><strong>Secondary</strong> — manufacturing and processing (cars, clothes, construction)</li>
+    <li><strong>Tertiary</strong> — services (banking, retail, transport, tourism)</li>
+    <li><strong>Quaternary</strong> — knowledge services (computing, R&D, consultancy)</li>
+  </ul>
+
+  <h4>Industrialisation vs de-industrialisation</h4>
+  <div class="pros-cons">
+    <div class="pros">
+      <h5>Industrialisation (developing economies)</h5>
+      <p style="margin:0;color:var(--ink-soft);font-size:0.9rem">Secondary sector grows. Raises GDP, increases employment, boosts exports — but causes urbanisation pressures and import dependency.</p>
+    </div>
+    <div class="cons">
+      <h5>De-industrialisation (developed economies)</h5>
+      <p style="margin:0;color:var(--ink-soft);font-size:0.9rem">Secondary sector shrinks as services grow. Rising incomes shift demand toward services; cheap manufactured imports replace domestic output.</p>
+    </div>
+  </div>
+
+  <h4>Forms of ownership — at a glance</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Type</th><th>Liability</th><th>Continuity</th><th>Best suited for</th></tr></thead>
+      <tbody>
+        <tr><td>Sole trader</td><td>Unlimited</td><td>None</td><td>Small, owner-controlled, simple set-up</td></tr>
+        <tr><td>Partnership</td><td>Unlimited</td><td>None</td><td>Professional services with shared expertise</td></tr>
+        <tr><td>Private Ltd (Ltd)</td><td>Limited</td><td>Yes</td><td>Family-run, medium-sized businesses</td></tr>
+        <tr><td>Public Ltd (PLC)</td><td>Limited</td><td>Yes</td><td>Large firms wanting access to public capital</td></tr>
+        <tr><td>Cooperative</td><td>Varies</td><td>Yes</td><td>Member-owned producer or consumer groups</td></tr>
+        <tr><td>Franchise</td><td>Limited (varies)</td><td>Yes</td><td>Replicating a proven business model</td></tr>
+        <tr><td>Public corporation</td><td>State-backed</td><td>Yes</td><td>Nationalised industries, social objectives</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Examiner reminder</div>
+    <p>Limited liability is the single most important advantage of incorporation. It means shareholders can only lose what they invested — never their personal wealth.</p>
+  </div>
+
+  <!-- Chapter 3 Size -->
+  <h3 class="topic-title"><span class="num">CH 3</span>Size of Business</h3>
+
+  <h4>Five ways to measure size</h4>
+  <ol class="styled">
+    <li><strong>Number of employees</strong> — distorted by capital-intensive firms</li>
+    <li><strong>Revenue</strong> — useful within an industry, less so across</li>
+    <li><strong>Capital employed</strong> — long-term finance invested</li>
+    <li><strong>Market capitalisation</strong> — share price × shares issued (PLCs only)</li>
+    <li><strong>Market share</strong> — firm's sales as % of total market</li>
+  </ol>
+
+  <h4>Internal vs external growth</h4>
+  <div class="grid-2">
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.5rem">Internal (organic)</h5>
+      <p style="margin:0;font-size:0.9rem">Opening new branches, increasing investment. Cheap, avoids takeover problems — but slow.</p>
+    </div>
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.5rem">External (M&A)</h5>
+      <p style="margin:0;font-size:0.9rem">Merger or takeover. Faster, gives instant scale — but risks culture clash and diseconomies.</p>
+    </div>
+  </div>
+
+  <h4>Types of integration</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Type</th><th>What it joins</th><th>Why do it</th></tr></thead>
+      <tbody>
+        <tr><td>Horizontal</td><td>Same industry, same stage</td><td>Remove a competitor, gain scale</td></tr>
+        <tr><td>Vertical forward</td><td>Same industry, customer side</td><td>Control distribution and pricing</td></tr>
+        <tr><td>Vertical backward</td><td>Same industry, supplier side</td><td>Secure inputs, control quality</td></tr>
+        <tr><td>Conglomerate</td><td>Different industry</td><td>Diversify risk across markets</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 4 Objectives -->
+  <h3 class="topic-title"><span class="num">CH 4</span>Business Objectives</h3>
+
+  <h4>The hierarchy of objectives</h4>
+  <p>Aim → Mission → Corporate objectives → Divisional objectives → Departmental objectives → Individual targets. Each level translates the one above into something more concrete and measurable.</p>
+
+  <h4>SMART criteria</h4>
+  <div class="content-block dark">
+    <p style="margin:0"><strong style="color:var(--gold)">S</strong>pecific · <strong style="color:var(--gold)">M</strong>easurable · <strong style="color:var(--gold)">A</strong>chievable · <strong style="color:var(--gold)">R</strong>ealistic · <strong style="color:var(--gold)">T</strong>ime-specific. Every objective should pass all five tests.</p>
+  </div>
+
+  <h4>Common corporate objectives</h4>
+  <ul class="styled">
+    <li><strong>Profit maximisation</strong> — output where TR – TC is greatest</li>
+    <li><strong>Profit satisficing</strong> — enough profit to keep owners content</li>
+    <li><strong>Growth</strong> — measured by sales / output, defends against takeover</li>
+    <li><strong>Market share</strong> — being the brand leader brings retailer power</li>
+    <li><strong>Survival</strong> — typical for start-ups</li>
+    <li><strong>CSR</strong> — taking responsibility for impact on society and environment</li>
+  </ul>
+
+  <h4>The triple bottom line</h4>
+  <p>Used especially by social enterprises: <strong>Economic · Social · Environmental</strong>. A business is judged not only by financial return but by its contribution to people and planet.</p>
+
+  <!-- Chapter 5 Stakeholders -->
+  <h3 class="topic-title"><span class="num">CH 5</span>Stakeholders</h3>
+
+  <p>A <span class="definition">stakeholder</span> is any person or group with an interest in a business's activity. The <strong>stakeholder concept</strong> argues that managers have responsibilities to many groups — not only shareholders.</p>
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Stakeholder</th><th>Key interest</th></tr></thead>
+      <tbody>
+        <tr><td>Customers</td><td>Quality, value, safety, service</td></tr>
+        <tr><td>Employees</td><td>Pay, conditions, security, development</td></tr>
+        <tr><td>Suppliers</td><td>On-time payment, ongoing orders</td></tr>
+        <tr><td>Shareholders</td><td>Dividends, share-price growth</td></tr>
+        <tr><td>Lenders</td><td>Repayment, interest, security</td></tr>
+        <tr><td>Government</td><td>Tax revenue, employment, legal compliance</td></tr>
+        <tr><td>Local community</td><td>Jobs, environment, infrastructure</td></tr>
+        <tr><td>Pressure groups</td><td>Ethical, social, environmental conduct</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Conflict resolution</div>
+    <p>Stakeholder interests often conflict — higher wages cut into profits; expansion disturbs neighbours. Managers prioritise, weigh costs, and assess publicity impact. Balancing these competing claims is a key reason senior pay is high.</p>
+  </div>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== TOPIC 2: HUMAN RESOURCE MANAGEMENT ===== -->
+<!-- ============================================== -->
+<section id="t2" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">TOPIC 02 / 05</div>
+    <div class="eyebrow">Topic Two</div>
+    <h1 class="display">Human <em>resource</em><br>management.</h1>
+    <p class="lead">People are the asset every theory in this topic tries to get right — from Taylor's stopwatch to McGregor's attitudes.</p>
+  </div>
+
+  <h3 class="topic-title"><span class="num">CH 10</span>Human Resource Management</h3>
+
+  <p>HRM is the strategic approach to managing people so they help the business gain competitive advantage. It covers planning, recruitment, development, contracts, morale, incentives, monitoring, and dismissal.</p>
+
+  <h4>Recruitment process</h4>
+  <ol class="styled">
+    <li><strong>Job analysis</strong> — identify the vacancy and what it involves</li>
+    <li><strong>Job description</strong> — list of tasks, duties and responsibilities</li>
+    <li><strong>Person specification</strong> — qualities, skills, qualifications needed</li>
+    <li><strong>Job advertisement</strong> — internal or external</li>
+    <li><strong>Shortlisting</strong> — based on CVs, references, applications</li>
+    <li><strong>Selection</strong> — interview, aptitude tests, trial work</li>
+  </ol>
+
+  <h4>Internal vs external recruitment</h4>
+  <div class="pros-cons">
+    <div class="pros">
+      <h5>Internal — promoting within</h5>
+      <ul class="styled" style="margin:0">
+        <li>Cheaper, quicker, no induction</li>
+        <li>Already known, fits the culture</li>
+        <li>Motivates by showing progression</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h5>External — hiring outside</h5>
+      <ul class="styled" style="margin:0">
+        <li>Brings new ideas, wider talent pool</li>
+        <li>Avoids internal jealousy</li>
+        <li>Higher standard of applicants possible</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Training types</h4>
+  <ul class="styled">
+    <li><strong>Induction</strong> — for all new recruits, covers systems and layout</li>
+    <li><strong>On-the-job</strong> — at workplace, watching experienced staff. Cheap.</li>
+    <li><strong>Off-the-job</strong> — away from work, with experts. Expensive but more thorough.</li>
+  </ul>
+
+  <h4>Labour turnover</h4>
+  <div class="formula">labour turnover (%) <span class="op">=</span> <span class="var">leavers in 1 year</span> <span class="op">÷</span> <span class="var">average employees</span> <span class="op">×</span> 100</div>
+
+  <!-- Chapter 11 Motivation -->
+  <h3 class="topic-title"><span class="num">CH 11</span>Motivation Theories</h3>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">F. W. Taylor — Scientific Management</h4>
+    <p>Workers motivated only by money. Use piece-rate pay, autocratic style, close supervision. Time-and-motion studies find the one best way; everyone is trained to do it.</p>
+    <p style="margin-bottom:0"><em>Limitation:</em> ignores intrinsic motivation, encourages quantity over quality.</p>
+  </div>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">Elton Mayo — Hawthorne Effect</h4>
+    <p>Productivity depends on social factors more than physical conditions. Talking with workers, team spirit, and giving control all raise output. Foundation of HR as a discipline.</p>
+  </div>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">Maslow — Hierarchy of Needs</h4>
+    <ol class="styled" style="margin:0">
+      <li>Physical (food, shelter)</li>
+      <li>Safety (job security, health)</li>
+      <li>Social (friendship, teamwork)</li>
+      <li>Esteem (status, recognition)</li>
+      <li>Self-actualisation (full potential)</li>
+    </ol>
+    <p style="margin-top:0.6rem;margin-bottom:0"><em>Once a need is met, only the next level motivates further.</em></p>
+  </div>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">Herzberg — Two-Factor Theory</h4>
+    <div class="grid-2">
+      <div>
+        <strong style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em">Hygiene factors</strong>
+        <p style="font-size:0.9rem;margin-top:0.4rem">Pay, conditions, supervision. Their absence demotivates — their presence doesn't motivate.</p>
+      </div>
+      <div>
+        <strong style="color:var(--sage);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em">Motivators</strong>
+        <p style="font-size:0.9rem;margin-top:0.4rem">Achievement, recognition, the work itself, responsibility, advancement. These genuinely motivate.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">McClelland — Three Motivational Needs</h4>
+    <ul class="styled" style="margin:0">
+      <li><strong>Achievement</strong> — set realistic goals, seek enrichment</li>
+      <li><strong>Authority</strong> — desire to influence and lead</li>
+      <li><strong>Affiliation</strong> — value friendly relations and teamwork</li>
+    </ul>
+  </div>
+
+  <div class="content-block warm">
+    <h4 style="margin-top:0">Vroom — Expectancy Theory</h4>
+    <p>Motivation requires three beliefs simultaneously:</p>
+    <ol class="styled" style="margin:0">
+      <li><strong>Expectancy</strong> — effort will lead to performance</li>
+      <li><strong>Instrumentality</strong> — performance will lead to reward</li>
+      <li><strong>Valence</strong> — the reward is worth having</li>
+    </ol>
+  </div>
+
+  <h4>Financial methods of motivation</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Method</th><th>How it works</th></tr></thead>
+      <tbody>
+        <tr><td>Time-rate</td><td>Per hour worked</td></tr>
+        <tr><td>Piece-rate</td><td>Per unit produced</td></tr>
+        <tr><td>Salary</td><td>Annual income, paid monthly</td></tr>
+        <tr><td>Commission</td><td>% of sales made</td></tr>
+        <tr><td>Bonus</td><td>Addition to wage/salary</td></tr>
+        <tr><td>Performance-related pay</td><td>Reward for above-average performance</td></tr>
+        <tr><td>Profit-sharing</td><td>Bonus tied to firm profits</td></tr>
+        <tr><td>Share-ownership</td><td>Shares granted or discounted</td></tr>
+        <tr><td>Fringe benefits</td><td>Cars, insurance, pensions, loans</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Non-financial methods</h4>
+  <ul class="styled">
+    <li><strong>Job rotation</strong> — switch tasks to add variety</li>
+    <li><strong>Job enlargement</strong> — broaden tasks (horizontal)</li>
+    <li><strong>Job enrichment</strong> — deeper, more challenging work (Herzberg)</li>
+    <li><strong>Empowerment</strong> — authority and resources to decide</li>
+    <li><strong>Quality circles</strong> — voluntary problem-solving groups (Kaizen)</li>
+    <li><strong>Team working</strong> — complete units of work as a group</li>
+    <li><strong>Target setting</strong> — Management by Objectives</li>
+  </ul>
+
+  <!-- Chapter 12 Management -->
+  <h3 class="topic-title"><span class="num">CH 12</span>Management & Leadership</h3>
+
+  <h4>Functions of management (Fayol-style)</h4>
+  <ol class="styled">
+    <li>Setting objectives and planning</li>
+    <li>Organising resources to meet them</li>
+    <li>Directing and motivating staff</li>
+    <li>Coordinating activities across departments</li>
+    <li>Controlling and measuring performance</li>
+  </ol>
+
+  <h4>Leadership styles</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Style</th><th>Decisions</th><th>Best when…</th></tr></thead>
+      <tbody>
+        <tr><td>Autocratic</td><td>Leader alone</td><td>Crisis; unskilled workforce; speed needed</td></tr>
+        <tr><td>Democratic</td><td>Shared with workforce</td><td>Skilled team; complex decisions; time available</td></tr>
+        <tr><td>Paternalistic</td><td>Leader, with consultation</td><td>Loyal workforce expecting guidance</td></tr>
+        <tr><td>Laissez-faire</td><td>Delegated to workers</td><td>Highly skilled, self-motivated professionals</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block dark">
+    <h4 style="margin-top:0">McGregor's Theory X & Y</h4>
+    <p><strong style="color:var(--gold)">Theory X</strong> — workers are lazy, dislike work, need control and direction.</p>
+    <p style="margin-bottom:0"><strong style="color:var(--gold)">Theory Y</strong> — workers are self-motivated, enjoy responsibility, seek fulfilment.</p>
+    <p style="margin-top:0.8rem;font-style:italic;color:var(--gold)">Crucially: these are <em>management opinions</em> about workers — not facts about them. Managers who hold Theory X tend to create Theory X behaviour.</p>
+  </div>
+
+  <h4>Trade unions & industrial action</h4>
+  <p>A trade union is a workers' organisation that negotiates pay and conditions through <strong>collective bargaining</strong>. When agreement fails, escalation can include go-slow, work-to-rule, overtime ban, and ultimately strike action.</p>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== TOPIC 3: MARKETING                  ===== -->
+<!-- ============================================== -->
+<section id="t3" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">TOPIC 03 / 05</div>
+    <div class="eyebrow">Topic Three</div>
+    <h1 class="display">Marketing.</h1>
+    <p class="lead">Identify, anticipate, satisfy — at a profit. Four Ps, one mix, and a product life cycle that determines almost everything.</p>
+  </div>
+
+  <h3 class="topic-title"><span class="num">CH 17</span>Nature of Marketing</h3>
+
+  <p>Marketing is the management process responsible for identifying, anticipating, and satisfying consumers' requirements profitably. It coordinates with finance (budgets, cash flow), HR (workforce planning), and operations (capacity, NPD).</p>
+
+  <h4>Demand & supply curves</h4>
+  <p>Demand: quantity buyers will buy at a given price in a time period. Supply: quantity producers will offer. They meet at the <strong>equilibrium price</strong>. See the interactive chart on the <a href="#" onclick="goTo('graphs');return false;" style="color:var(--accent)">Graphs page</a>.</p>
+
+  <h4>Mass vs niche marketing</h4>
+  <div class="grid-2">
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.5rem">Mass marketing</h5>
+      <p style="font-size:0.9rem;margin:0">Same product, whole market. Wide choice, economies of scale, lower risk — but vulnerable to changes in taste and competing on price compresses image.</p>
+    </div>
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:0.5rem">Niche marketing</h5>
+      <p style="font-size:0.9rem;margin:0">Small segment, customised offer. Higher prices, stronger loyalty — but limited growth and vulnerable if the niche shifts.</p>
+    </div>
+  </div>
+
+  <h4>Market segmentation</h4>
+  <p>Splitting a market into sub-groups (age, income, gender, location, social class) and targeting each differently. Enables price discrimination, focused promotion, and identification of gaps.</p>
+
+  <!-- Chapter 18 Market Research -->
+  <h3 class="topic-title"><span class="num">CH 18</span>Market Research</h3>
+
+  <h4>Primary vs secondary</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th></th><th>Primary (field)</th><th>Secondary (desk)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What</strong></td><td>First-hand data collected for purpose</td><td>Existing data from elsewhere</td></tr>
+        <tr><td><strong>Methods</strong></td><td>Questionnaires, interviews, observation, focus groups, test marketing</td><td>Government data, trade reports, internet, internal records</td></tr>
+        <tr><td><strong>Pro</strong></td><td>Up-to-date, relevant, confidential</td><td>Cheap, fast, broad coverage</td></tr>
+        <tr><td><strong>Con</strong></td><td>Expensive, slow, sample bias</td><td>May be outdated or irrelevant</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Statistical measures</h4>
+  <ul class="styled">
+    <li><strong>Mean</strong> — totals ÷ count. Affected by outliers.</li>
+    <li><strong>Mode</strong> — most frequent value. Useful for stocking decisions.</li>
+    <li><strong>Median</strong> — middle value when ordered. Resistant to outliers.</li>
+    <li><strong>Range</strong> — highest minus lowest. Shows spread.</li>
+  </ul>
+
+  <!-- Chapter 19 Product & Price -->
+  <h3 class="topic-title"><span class="num">CH 19</span>Product & Price</h3>
+
+  <h4>The Product Life Cycle</h4>
+  <p>Every product moves through development → introduction → growth → maturity → decline. Each stage demands a different marketing mix. Compare three product types in the <a href="#" onclick="goTo('graphs');return false;" style="color:var(--accent)">interactive PLC chart</a>.</p>
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Stage</th><th>Sales</th><th>Strategy</th></tr></thead>
+      <tbody>
+        <tr><td>Introduction</td><td>Low, slow</td><td>Heavy informative advertising; skimming or penetration pricing</td></tr>
+        <tr><td>Growth</td><td>Rising fast</td><td>Build loyalty; widen distribution; competitors arrive</td></tr>
+        <tr><td>Maturity</td><td>Peak, flat</td><td>Brand differentiation; extension strategies; competitive pricing</td></tr>
+        <tr><td>Decline</td><td>Falling</td><td>Phase out; clearance pricing; prepare replacement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>The Boston Matrix</h4>
+  <div class="grid-2">
+    <div class="content-block warm">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin:0 0 0.4rem">★ Star</h5>
+      <p style="font-size:0.88rem;margin:0">High share, high growth. Invest to maintain — heavy promotion costs but the future of the portfolio.</p>
+    </div>
+    <div class="content-block warm">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin:0 0 0.4rem">? Question Mark</h5>
+      <p style="font-size:0.88rem;margin:0">Low share, high growth. Decide quickly — invest, reposition, or withdraw.</p>
+    </div>
+    <div class="content-block warm">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin:0 0 0.4rem">$ Cash Cow</h5>
+      <p style="font-size:0.88rem;margin:0">High share, low growth. Milk the cash to fund stars and question marks.</p>
+    </div>
+    <div class="content-block warm">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem;margin:0 0 0.4rem">✕ Dog</h5>
+      <p style="font-size:0.88rem;margin:0">Low share, low growth. Divest unless strategically necessary.</p>
+    </div>
+  </div>
+
+  <h4>Pricing methods</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Method</th><th>Logic</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td>Cost-plus</td><td>Unit cost + fixed margin</td><td>Stable cost base, single product</td></tr>
+        <tr><td>Mark-up</td><td>% added to cost</td><td>Retail, simple decisions</td></tr>
+        <tr><td>Contribution-cost</td><td>Variable cost + contribution</td><td>Special orders, spare capacity</td></tr>
+        <tr><td>Competitive</td><td>Match the market</td><td>Crowded, similar-product markets</td></tr>
+        <tr><td>Penetration</td><td>Low entry price</td><td>Mass market, building share fast</td></tr>
+        <tr><td>Skimming</td><td>High entry price</td><td>Inelastic demand, USP, novelty</td></tr>
+        <tr><td>Psychological</td><td>£9.99 not £10</td><td>Consumer goods at retail</td></tr>
+        <tr><td>Dynamic</td><td>Real-time demand-based</td><td>Airlines, hotels, e-commerce</td></tr>
+        <tr><td>Price discrimination</td><td>Different prices per segment</td><td>Off-peak transport, student discounts</td></tr>
+        <tr><td>Loss leader</td><td>Below cost to draw traffic</td><td>Supermarkets, complementary goods</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chapter 20 Promotion & Place -->
+  <h3 class="topic-title"><span class="num">CH 20</span>Promotion & Place</h3>
+
+  <h4>Above-the-line: Advertising</h4>
+  <p>Persuasive (build image) or informative (give facts). Choose media by cost-per-target-consumer, audience profile, message complexity, legal constraints.</p>
+
+  <h4>Below-the-line: Sales promotion</h4>
+  <ul class="styled">
+    <li>Price reductions and money-off coupons</li>
+    <li>Customer loyalty schemes (cards, points)</li>
+    <li>BOGOF (buy one get one free)</li>
+    <li>Money-back refunds</li>
+    <li>Point-of-sale displays</li>
+  </ul>
+
+  <h4>Direct & digital promotion</h4>
+  <ul class="styled">
+    <li><strong>Personal selling</strong> — one-to-one, costly, high success</li>
+    <li><strong>Telemarketing</strong> — cheaper than personal but easily ignored</li>
+    <li><strong>Direct mail</strong> — focused but easily missed</li>
+    <li><strong>PR / sponsorship</strong> — free media coverage, reputation</li>
+    <li><strong>Social media, email, SEO, influencers</strong> — measurable, targetable, global</li>
+  </ul>
+
+  <h4>Channels of distribution</h4>
+  <ol class="styled">
+    <li>Manufacturer → Consumer (direct, online)</li>
+    <li>Manufacturer → Retailer → Consumer</li>
+    <li>Manufacturer → Wholesaler → Retailer → Consumer</li>
+  </ol>
+  <p>Each layer adds margin and reach but reduces control. The right channel depends on the product type, market spread, and target audience.</p>
+
+  <div class="callout">
+    <div class="callout-label">Integrated marketing mix</div>
+    <p>The four Ps must reinforce each other. An exclusive product with cheap packaging at a discount price in a low-end shop sends contradictory signals — and contradictory signals don't sell.</p>
+  </div>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== TOPIC 4: OPERATIONS                  ===== -->
+<!-- ============================================== -->
+<section id="t4" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">TOPIC 04 / 05</div>
+    <div class="eyebrow">Topic Four</div>
+    <h1 class="display">Operations<br><em>management.</em></h1>
+    <p class="lead">Inputs become outputs. The transformation process — and how efficiently, flexibly, and sustainably it runs.</p>
+  </div>
+
+  <h3 class="topic-title"><span class="num">CH 23</span>The Nature of Operations</h3>
+
+  <h4>The transformational process</h4>
+  <p>Inputs (enterprise, land, labour, capital) → transformation → outputs (goods, services, components). The job of operations management is to add value at every stage.</p>
+
+  <h4>Productivity vs production</h4>
+  <div class="formula">labour productivity <span class="op">=</span> <span class="var">total output</span> <span class="op">÷</span> <span class="var">total workers</span></div>
+  <p>Production is total output. Productivity is output <em>per unit of input</em>. Productivity drives unit cost down — production is just volume.</p>
+
+  <h4>Production methods</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Method</th><th>What it makes</th><th>Strengths</th><th>Weaknesses</th></tr></thead>
+      <tbody>
+        <tr><td>Job</td><td>One-off bespoke items</td><td>Customised, premium prices</td><td>High cost, slow, skilled labour</td></tr>
+        <tr><td>Batch</td><td>Groups of identical items</td><td>Some scale, flexible variety</td><td>Storage of WIP, downtime between batches</td></tr>
+        <tr><td>Flow</td><td>Continuous mass production</td><td>Big economies of scale, consistent quality</td><td>High capital, low job satisfaction</td></tr>
+        <tr><td>Mass customisation</td><td>Custom at scale (CAM/CAD)</td><td>Tailored at low unit cost</td><td>Tech investment, complex coordination</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Economies & diseconomies of scale</h4>
+  <div class="pros-cons">
+    <div class="pros">
+      <h5>Economies of scale</h5>
+      <ul class="styled" style="margin:0">
+        <li>Purchasing — bulk discounts</li>
+        <li>Technical — fixed costs spread</li>
+        <li>Financial — better loan terms</li>
+        <li>Marketing — promotion spread over output</li>
+        <li>Managerial — afford specialists</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h5>Diseconomies of scale</h5>
+      <ul class="styled" style="margin:0">
+        <li>Communication — long chains, distortion</li>
+        <li>Alienation — workers feel unimportant</li>
+        <li>Coordination — hard to align departments</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Sustainability</h4>
+  <p>Operations that can be maintained long-term without depleting resources or harming future generations. Done through recycled inputs, waste reduction, lower energy use, sustainable suppliers.</p>
+
+  <!-- Chapter 24 Inventory -->
+  <h3 class="topic-title"><span class="num">CH 24</span>Inventory Management</h3>
+
+  <h4>Three types of inventory</h4>
+  <ul class="styled">
+    <li><strong>Raw materials</strong> — purchased from suppliers</li>
+    <li><strong>Work in progress</strong> — partly converted</li>
+    <li><strong>Finished goods</strong> — ready for sale</li>
+  </ul>
+
+  <h4>Costs of holding vs not holding</h4>
+  <div class="pros-cons">
+    <div class="cons">
+      <h5>Holding costs</h5>
+      <ul class="styled" style="margin:0">
+        <li>Opportunity cost of capital tied up</li>
+        <li>Storage, security, insurance</li>
+        <li>Risk of damage or obsolescence</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h5>Not holding (stockouts)</h5>
+      <ul class="styled" style="margin:0">
+        <li>Lost sales</li>
+        <li>Idle production resources</li>
+        <li>Expensive emergency orders</li>
+        <li>Loss of bulk discounts</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>JIT vs JIC</h4>
+  <div class="grid-2">
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem">Just-in-Time (JIT)</h5>
+      <p style="font-size:0.9rem;margin:0">Inventory arrives as needed. Frees capital, reduces obsolescence — but vulnerable to supply disruption and requires excellent supplier relations.</p>
+    </div>
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem">Just-in-Case (JIC)</h5>
+      <p style="font-size:0.9rem;margin:0">Hold high buffer stocks. Production never stops, bulk discounts apply — but capital is tied up and obsolescence risk grows.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 25 Capacity -->
+  <h3 class="topic-title"><span class="num">CH 25</span>Capacity & Outsourcing</h3>
+
+  <h4>Capacity utilisation</h4>
+  <div class="formula">capacity utilisation (%) <span class="op">=</span> <span class="var">current output</span> <span class="op">÷</span> <span class="var">maximum output</span> <span class="op">×</span> 100</div>
+
+  <h4>Operating at maximum capacity</h4>
+  <div class="pros-cons">
+    <div class="pros">
+      <h5>Benefits</h5>
+      <ul class="styled" style="margin:0">
+        <li>Lowest possible average fixed cost</li>
+        <li>Job security, employee pride</li>
+        <li>Marketing benefit — visible demand</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h5>Drawbacks</h5>
+      <ul class="styled" style="margin:0">
+        <li>Worker stress, no slack time</li>
+        <li>Maintenance is delayed</li>
+        <li>Cannot meet additional orders</li>
+        <li>Faster machine depreciation</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Outsourcing</h4>
+  <p>Using a third party to undertake part of the production process. Cuts costs, adds flexibility, frees focus for core activities — but reduces quality control, raises ethical questions, and creates dependence.</p>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== TOPIC 5: FINANCE & ACCOUNTING        ===== -->
+<!-- ============================================== -->
+<section id="t5" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">TOPIC 05 / 05</div>
+    <div class="eyebrow">Topic Five</div>
+    <h1 class="display">Finance <em>&</em><br>accounting.</h1>
+    <p class="lead">Where the money comes from, where it goes, and how to know whether the business is actually working.</p>
+  </div>
+
+  <h3 class="topic-title"><span class="num">CH 29</span>Business Finance</h3>
+
+  <h4>Why businesses need finance</h4>
+  <ul class="styled">
+    <li>Start-up capital — buy initial assets</li>
+    <li>Working capital — fund day-to-day operations</li>
+    <li>Expansion, acquisitions, R&D</li>
+    <li>Cover unforeseen expenses</li>
+  </ul>
+
+  <h4>Two types of expenditure</h4>
+  <ul class="styled">
+    <li><strong>Capital expenditure</strong> — long-term, on assets lasting >1 year (machinery, buildings)</li>
+    <li><strong>Revenue expenditure</strong> — short-term, day-to-day (wages, materials, utilities)</li>
+  </ul>
+
+  <h4>Working capital</h4>
+  <div class="formula">working capital <span class="op">=</span> <span class="var">current assets</span> <span class="op">−</span> <span class="var">current liabilities</span></div>
+  <p>Too little: insolvency risk. Too much: opportunity cost of idle cash. Manage it through inventory control, credit policy, payment timing.</p>
+
+  <h4>Sources of finance</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Source</th><th>Type</th><th>Time horizon</th></tr></thead>
+      <tbody>
+        <tr><td>Retained earnings</td><td>Internal</td><td>Permanent</td></tr>
+        <tr><td>Sale of assets</td><td>Internal</td><td>One-off</td></tr>
+        <tr><td>Reduced working capital</td><td>Internal</td><td>Short term</td></tr>
+        <tr><td>Bank overdraft</td><td>External</td><td>Short term</td></tr>
+        <tr><td>Trade credit</td><td>External</td><td>Short term</td></tr>
+        <tr><td>Debt factoring</td><td>External</td><td>Short term</td></tr>
+        <tr><td>Hire purchase / leasing</td><td>External</td><td>Medium term</td></tr>
+        <tr><td>Bank loan</td><td>External</td><td>Medium / Long</td></tr>
+        <tr><td>Debentures (bonds)</td><td>External</td><td>Long term</td></tr>
+        <tr><td>Equity / share issue</td><td>External</td><td>Permanent</td></tr>
+        <tr><td>Venture capital</td><td>External</td><td>Long term</td></tr>
+        <tr><td>Crowdfunding</td><td>External</td><td>Variable</td></tr>
+        <tr><td>Microfinance</td><td>External</td><td>Variable</td></tr>
+        <tr><td>Government grants</td><td>External</td><td>Variable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Debt vs equity</h4>
+  <div class="grid-2">
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem">Debt finance</h5>
+      <p style="font-size:0.9rem;margin:0">Ownership stays intact, interest is tax-deductible, lenders have no votes — but loans must be repaid, with collateral.</p>
+    </div>
+    <div class="content-block">
+      <h5 style="font-family:'Fraunces',serif;font-size:1.05rem">Equity finance</h5>
+      <p style="font-size:0.9rem;margin:0">Never repaid, no interest pressure — but dilutes ownership, dividends paid from profit, control may shift.</p>
+    </div>
+  </div>
+
+  <!-- Chapter 30 Cash Flow -->
+  <h3 class="topic-title"><span class="num">CH 30</span>Cash Flow</h3>
+
+  <p>Cash flow is the sum of cash inflows minus outflows. A profitable business can fail through poor cash flow — profit is a long-term goal, but cash is the short-term oxygen.</p>
+
+  <h4>Cash flow forecast structure</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Line</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>Opening balance</td><td>Cash held at start of month</td></tr>
+        <tr><td>Cash inflows</td><td>Sales, capital, loans, receivables</td></tr>
+        <tr><td>Cash outflows</td><td>Suppliers, wages, rent, marketing, equipment</td></tr>
+        <tr><td>Net cash flow</td><td>Inflows − outflows</td></tr>
+        <tr><td>Closing balance</td><td>Opening + net flow → next month's opening</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Causes of cash flow problems</h4>
+  <ul class="styled">
+    <li>Lack of planning</li>
+    <li>Poor credit control (slow trade receivables, bad debt)</li>
+    <li>Overtrading — expanding without funding</li>
+    <li>Unforeseen costs or demand swings</li>
+  </ul>
+
+  <h4>Improving cash flow</h4>
+  <div class="grid-2">
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem">Boost inflows</h5>
+      <ul class="styled" style="margin:0">
+        <li>Overdraft, short-term loan</li>
+        <li>Sale or sale-and-leaseback of assets</li>
+        <li>Debt factoring</li>
+        <li>Tighter credit period for customers</li>
+        <li>Discount for prompt payment</li>
+      </ul>
+    </div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.6rem">Slow outflows</h5>
+      <ul class="styled" style="margin:0">
+        <li>Delay capital expenditure</li>
+        <li>Lease rather than buy</li>
+        <li>Cut overheads</li>
+        <li>Extend credit period from suppliers</li>
+        <li>Buy more on credit, less in cash</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Chapter 31 Costs -->
+  <h3 class="topic-title"><span class="num">CH 31</span>Costs</h3>
+
+  <h4>Cost classification</h4>
+  <ul class="styled">
+    <li><strong>Direct</strong> — identifiable with a single unit of output (raw materials)</li>
+    <li><strong>Indirect (overheads)</strong> — cannot be allocated to one unit (rent, admin)</li>
+    <li><strong>Fixed</strong> — don't vary with output in the short run</li>
+    <li><strong>Variable</strong> — vary directly with output</li>
+    <li><strong>Marginal</strong> — cost of one extra unit</li>
+  </ul>
+
+  <h4>Costing methods</h4>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Method</th><th>Allocates</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td>Full (absorption)</td><td>All direct + indirect costs</td><td>Pricing, profit per product, single-product firms</td></tr>
+        <tr><td>Marginal</td><td>Variable cost only</td><td>Short-term decisions, special orders</td></tr>
+        <tr><td>Contribution</td><td>Direct cost; rest covered by contribution</td><td>Multi-product mix decisions, break-even</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Break-even analysis</h4>
+  <div class="formula">contribution per unit <span class="op">=</span> <span class="var">selling price</span> <span class="op">−</span> <span class="var">variable cost per unit</span></div>
+  <div class="formula">break-even output <span class="op">=</span> <span class="var">fixed costs</span> <span class="op">÷</span> <span class="var">contribution per unit</span></div>
+  <div class="formula">margin of safety <span class="op">=</span> <span class="var">actual sales</span> <span class="op">−</span> <span class="var">break-even sales</span></div>
+  <p>Explore break-even visually on the <a href="#" onclick="goTo('graphs');return false;" style="color:var(--accent)">Graphs page</a> — change costs and prices and see how the break-even point moves.</p>
+
+  <h4>Budgets & variance</h4>
+  <ul class="styled">
+    <li><strong>Incremental budgeting</strong> — last year's budget plus an adjustment</li>
+    <li><strong>Zero-based budgeting</strong> — start from zero, justify every line</li>
+    <li><strong>Flexible budgeting</strong> — vary cost budgets as sales vary</li>
+    <li><strong>Variance analysis</strong> — comparison of budgeted vs actual</li>
+  </ul>
+
+  <p><strong>Favourable variance:</strong> actual outcome leads to higher profit than budgeted. <strong>Adverse variance:</strong> actual outcome leads to lower profit than budgeted.</p>
+</section>
+
+<!-- ============================================== -->
+<!-- ===== INTERACTIVE GRAPHS PAGE              ===== -->
+<!-- ============================================== -->
+<section id="graphs" class="page">
+  <div class="hero" style="padding-bottom: 2rem; border-bottom: none;">
+    <div class="hero-mark">INTERACTIVE</div>
+    <div class="eyebrow">Visual Analysis</div>
+    <h1 class="display">See <em>the</em> curves<br>move.</h1>
+    <p class="lead">Three explorable models for the concepts most often examined: product life cycles across different industries, demand and supply equilibrium, and break-even analysis.</p>
+  </div>
+
+  <!-- Product Life Cycle -->
+  <h3 class="topic-title"><span class="num">01</span>Product Life Cycle — three industries</h3>
+  <p>The same five stages, three very different curves. Switch between products to see how a smartphone, a luxury watch, and a fast-fashion item live and die in the market.</p>
+
+  <div class="interactive-section">
+    <div class="chart-tabs" id="plcTabs">
+      <button class="chart-tab active" data-plc="smartphone">📱 Smartphone</button>
+      <button class="chart-tab" data-plc="luxury">⌚ Luxury Watch</button>
+      <button class="chart-tab" data-plc="fashion">👕 Fast Fashion</button>
+      <button class="chart-tab" data-plc="streaming">📺 Streaming Service</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="plcChart"></canvas>
+    </div>
+    <div class="chart-meta" id="plcMeta"></div>
+  </div>
+
+  <!-- Demand & Supply -->
+  <h3 class="topic-title"><span class="num">02</span>Demand & Supply — equilibrium</h3>
+  <p>Drag the sliders to shift the curves. Watch the equilibrium price and quantity recalculate in real time. Try a demand boom, a supply shock, both at once.</p>
+
+  <div class="interactive-section">
+    <div class="chart-controls">
+      <label>Demand shift: <input type="range" id="demandShift" min="-30" max="30" value="0"> <span id="demandShiftVal">0</span></label>
+      <label>Supply shift: <input type="range" id="supplyShift" min="-30" max="30" value="0"> <span id="supplyShiftVal">0</span></label>
+      <button class="filter-btn" id="resetMarket">Reset</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="marketChart"></canvas>
+    </div>
+    <div class="chart-meta">
+      <div class="chart-meta-item"><div class="label">Equilibrium price</div><div class="value" id="eqPrice">$25</div></div>
+      <div class="chart-meta-item"><div class="label">Equilibrium quantity</div><div class="value" id="eqQty">100</div></div>
+      <div class="chart-meta-item"><div class="label">Market value</div><div class="value" id="eqValue">$2,500</div></div>
+    </div>
+  </div>
+
+  <!-- Break-even -->
+  <h3 class="topic-title"><span class="num">03</span>Break-even analysis</h3>
+  <p>Adjust the price, variable cost per unit, and fixed costs. The break-even point and margin of safety update instantly.</p>
+
+  <div class="interactive-section">
+    <div class="chart-controls">
+      <label>Selling price ($/unit): <input type="number" id="bePrice" value="25" min="1" max="200"></label>
+      <label>Variable cost ($/unit): <input type="number" id="beVC" value="10" min="0" max="200"></label>
+      <label>Fixed costs ($): <input type="number" id="beFC" value="5000" min="0" max="100000" step="500"></label>
+      <label>Actual sales (units): <input type="number" id="beSales" value="600" min="0" max="2000"></label>
+    </div>
+    <div class="chart-container">
+      <canvas id="breakevenChart"></canvas>
+    </div>
+    <div class="chart-meta">
+      <div class="chart-meta-item"><div class="label">Contribution / unit</div><div class="value" id="beCont">$15</div></div>
+      <div class="chart-meta-item"><div class="label">Break-even units</div><div class="value" id="beUnits">334</div></div>
+      <div class="chart-meta-item"><div class="label">Break-even revenue</div><div class="value" id="beRev">$8,350</div></div>
+      <div class="chart-meta-item"><div class="label">Margin of safety</div><div class="value" id="beMOS">266 units</div></div>
+      <div class="chart-meta-item"><div class="label">Profit at sales level</div><div class="value" id="beProfit">$4,000</div></div>
+    </div>
+  </div>
+
+  <!-- Boston Matrix -->
+  <h3 class="topic-title"><span class="num">04</span>Boston Matrix — example portfolio</h3>
+  <p>A consumer goods company's portfolio plotted on the Boston Matrix. Each bubble is one product; bubble size shows revenue.</p>
+
+  <div class="interactive-section">
+    <div class="chart-container">
+      <canvas id="bostonChart"></canvas>
+    </div>
+    <div class="chart-meta">
+      <div class="chart-meta-item"><div class="label">Stars</div><div class="value">2</div></div>
+      <div class="chart-meta-item"><div class="label">Cash Cows</div><div class="value">2</div></div>
+      <div class="chart-meta-item"><div class="label">Question Marks</div><div class="value">2</div></div>
+      <div class="chart-meta-item"><div class="label">Dogs</div><div class="value">1</div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ============================================== */
+/* ===== NAVIGATION                          ===== */
+/* ============================================== */
+const navBtns = document.querySelectorAll('.nav-btn');
+const pages = document.querySelectorAll('.page');
+
+function goTo(pageId) {
+  pages.forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  navBtns.forEach(b => b.classList.toggle('active', b.dataset.page === pageId));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Initialise charts for graphs page
+  if (pageId === 'graphs') {
+    setTimeout(initGraphsPage, 100);
+  }
+}
+
+navBtns.forEach(btn => btn.addEventListener('click', () => goTo(btn.dataset.page)));
+document.querySelectorAll('.toc-card').forEach(c => c.addEventListener('click', () => goTo(c.dataset.go)));
+
+/* ============================================== */
+/* ===== FLASHCARD DATA                      ===== */
+/* ============================================== */
+const flashcards = [
+  // ============== TOPIC 1 ==============
+  { topic: 't1', term: 'Consumer', def: 'An individual or organisation that purchases goods or services from a business.' },
+  { topic: 't1', term: 'Consumer good', def: 'Physical, tangible goods sold to the general public — durable (cars, washing machines) or non-durable (food, drinks).' },
+  { topic: 't1', term: 'Consumer services', def: 'Non-tangible products sold to the general public, such as hotel accommodation, insurance, train journeys.' },
+  { topic: 't1', term: 'Factor of production', def: 'The resources needed by businesses to produce goods or services: land, labour, capital, enterprise.' },
+  { topic: 't1', term: 'Capital goods', def: 'Physical goods used by industry to aid production of other goods and services, such as machinery and commercial vehicles.' },
+  { topic: 't1', term: 'Creating value', def: 'Increasing the difference between the cost of bought-in materials and the price the finished goods sell for.' },
+  { topic: 't1', term: 'Added value', def: 'The difference between the cost of bought-in materials and the price the finished goods are sold for.' },
+  { topic: 't1', term: 'Branding', def: 'The process of differentiating a product by developing a symbol, name, image, or trademark for it.' },
+  { topic: 't1', term: 'Opportunity cost', def: 'The benefit of the next most desired option which is given up when a choice is made.' },
+  { topic: 't1', term: 'Multinational business', def: 'A business with headquarters in one country but operating branches, factories, or plants in other countries.' },
+  { topic: 't1', term: 'Entrepreneur', def: 'Someone who takes the financial risk of starting and managing a new venture.' },
+  { topic: 't1', term: 'Intrapreneur', def: 'A business employee who takes direct responsibility for turning an idea into a profitable new product or venture within an existing company.' },
+  { topic: 't1', term: 'Business plan', def: 'A written document that describes a business, its objectives, strategies, market and financial forecasts.' },
+  { topic: 't1', term: 'Enterprise', def: 'The action of showing initiative to take the risk of setting up a business.' },
+  { topic: 't1', term: 'Primary sector', def: 'Firms engaged in farming, fishing, oil extraction and other industries that extract natural resources.' },
+  { topic: 't1', term: 'Secondary sector', def: 'Firms that manufacture and process products from natural resources — computers, baking, clothes, construction.' },
+  { topic: 't1', term: 'Tertiary sector', def: 'Firms providing services to consumers and other businesses — retailing, transport, banking, hotels, telecommunications.' },
+  { topic: 't1', term: 'Quaternary sector', def: 'Businesses providing information services such as computing, web design, management consultancy, R&D.' },
+  { topic: 't1', term: 'Public sector', def: 'Organisations accountable to and controlled by central or local government.' },
+  { topic: 't1', term: 'Private sector', def: 'Businesses owned and controlled by individuals or groups of individuals.' },
+  { topic: 't1', term: 'Mixed economy', def: 'Economy where resources are owned and controlled by both private and public sectors.' },
+  { topic: 't1', term: 'Free-market economy', def: 'Economy where resources are owned largely by the private sector with little state intervention.' },
+  { topic: 't1', term: 'Command economy', def: 'Economy where resources are owned, planned, and controlled by the state.' },
+  { topic: 't1', term: 'Sole trader', def: 'A business in which one person provides the permanent finance and, in return, has full control and keeps all profits.' },
+  { topic: 't1', term: 'Partnership', def: 'A business formed by two or more people to carry on a business together, with shared capital and shared responsibilities.' },
+  { topic: 't1', term: 'Limited liability', def: 'The only liability — or potential loss — a shareholder has if the company fails is the amount invested, not their total wealth.' },
+  { topic: 't1', term: 'Private limited company', def: 'A small to medium-sized business owned by shareholders (often family); cannot sell shares to the general public.' },
+  { topic: 't1', term: 'Share', def: 'A certificate confirming part ownership of a company, entitling the shareholder to dividends and certain rights.' },
+  { topic: 't1', term: 'Shareholder', def: 'A person or institution owning shares in a limited company.' },
+  { topic: 't1', term: 'Public limited company', def: 'A limited company, often large, with the legal right to sell shares to the public — share prices quoted on stock exchange.' },
+  { topic: 't1', term: 'Memorandum of association', def: 'States company name, head office address, maximum share capital, and declared aims of the business.' },
+  { topic: 't1', term: 'Articles of association', def: 'Document covering internal working and control of the business — names of directors, procedures for meetings.' },
+  { topic: 't1', term: 'Cooperative', def: 'A jointly-owned business operated by members for their mutual benefit — consumers, farmers, workers.' },
+  { topic: 't1', term: 'Franchise', def: 'The legal right to use the name, logo, and trading systems of an existing successful business.' },
+  { topic: 't1', term: 'Franchiser', def: 'A person or business that sells the right to open stores and sell products using the brand name.' },
+  { topic: 't1', term: 'Franchisee', def: 'A person or business that buys the right from the franchiser to operate the franchise.' },
+  { topic: 't1', term: 'Joint venture', def: 'When two or more businesses agree to work closely on a particular project and create a separate business division to do so.' },
+  { topic: 't1', term: 'Social enterprise', def: 'A business with mainly social objectives that reinvests most profits into benefiting society rather than maximising returns.' },
+  { topic: 't1', term: 'Triple bottom line', def: 'The three objectives of social enterprises: economic, social, environmental.' },
+  { topic: 't1', term: 'Public corporation', def: 'A business enterprise owned and controlled by the state — also known as nationalised industry.' },
+  { topic: 't1', term: 'Revenue', def: 'Total value of sales made by a business in a given time period.' },
+  { topic: 't1', term: 'Market capitalisation', def: 'The total value of a company\'s issued shares.' },
+  { topic: 't1', term: 'Market share', def: 'Sales of the business as a proportion of total market sales.' },
+  { topic: 't1', term: 'Capital employed', def: 'The total value of all long-term finance invested in the business.' },
+  { topic: 't1', term: 'Internal growth', def: 'Business expansion by opening new branches, shops or factories — also known as organic growth.' },
+  { topic: 't1', term: 'External growth', def: 'Business expansion achieved by integrating with another business — merger or takeover.' },
+  { topic: 't1', term: 'Merger', def: 'An agreement by owners and managers of two businesses to bring them together in a new combined business.' },
+  { topic: 't1', term: 'Takeover', def: 'When a company buys more than 50% of the shares of another and becomes its controlling owner — an acquisition.' },
+  { topic: 't1', term: 'Horizontal integration', def: 'Integration with a business in the same industry and at the same stage of production.' },
+  { topic: 't1', term: 'Vertical integration', def: 'Integration with a business in the same industry but at a different stage of production.' },
+  { topic: 't1', term: 'Forward vertical integration', def: 'Vertical integration with a customer business.' },
+  { topic: 't1', term: 'Backward vertical integration', def: 'Vertical integration with a supplier business.' },
+  { topic: 't1', term: 'Conglomerate integration', def: 'Integration with a business in a different industry.' },
+  { topic: 't1', term: 'Synergy', def: 'The whole is greater than the sum of parts — the assumption that a combined business will be more successful than separate ones.' },
+  { topic: 't1', term: 'Strategic alliance', def: 'Agreement between two organisations to commit resources to achieve a specific objective while remaining independent.' },
+  { topic: 't1', term: 'Business objective', def: 'A stated, measurable target that a business plans to achieve.' },
+  { topic: 't1', term: 'Corporate social responsibility (CSR)', def: 'When a business considers the interests of society by taking responsibility for the impact of its decisions on customers, employees, communities and the environment.' },
+  { topic: 't1', term: 'Pressure group', def: 'Organisation created by people with a common interest who put pressure on businesses or governments to change policies.' },
+  { topic: 't1', term: 'SMART objectives', def: 'Aims that are Specific, Measurable, Achievable, Realistic and Time-limited.' },
+  { topic: 't1', term: 'Business aim', def: 'A long-term goal that a business hopes to achieve.' },
+  { topic: 't1', term: 'Mission statement', def: 'A statement of the business\'s core aims, phrased to motivate employees and stimulate interest by outside groups.' },
+  { topic: 't1', term: 'Management by objectives', def: 'A method of coordinating and motivating staff by dividing the overall aim into specific targets for each department, manager and employee.' },
+  { topic: 't1', term: 'Annual report', def: 'A document giving details of a company\'s activities over the year, including financial accounts.' },
+  { topic: 't1', term: 'Business strategy', def: 'A long-term plan of action for a business, designed to achieve a particular objective.' },
+  { topic: 't1', term: 'Tactic', def: 'A short-term action as part of an overall strategy.' },
+  { topic: 't1', term: 'Target', def: 'A short-term goal that must be reached before an overall objective can be achieved.' },
+  { topic: 't1', term: 'Budget', def: 'A detailed financial plan for the future.' },
+  { topic: 't1', term: 'Ethical code (code of conduct)', def: 'A document detailing a company\'s rules and guidelines on staff behaviour that all employees must follow.' },
+  { topic: 't1', term: 'Stakeholders', def: 'People or groups of people who can be affected by — and therefore have an interest in — any action by an organisation.' },
+  { topic: 't1', term: 'External stakeholders', def: 'Individuals or groups separate from the business but affected by or interested in its operation (e.g. customers).' },
+  { topic: 't1', term: 'Internal stakeholders', def: 'Individuals or groups who work within the business or own it (e.g. shareholders, workers).' },
+  { topic: 't1', term: 'Trade union', def: 'An organisation of working people with the objective of improving pay and working conditions, providing legal services and support.' },
+  { topic: 't1', term: 'Stakeholder concept', def: 'The view that businesses and their managers have responsibilities to a wide range of groups, not just shareholders.' },
+
+  // ============== TOPIC 2 ==============
+  { topic: 't2', term: 'Human resource management (HRM)', def: 'The strategic approach to managing an organisation\'s workers so they help the business gain competitive advantage.' },
+  { topic: 't2', term: 'Workforce planning', def: 'Forecasting the numbers of workers and skills required by the organisation to achieve its objectives.' },
+  { topic: 't2', term: 'Workforce audit', def: 'A check on the skills and qualifications of all existing workers and managers.' },
+  { topic: 't2', term: 'Recruitment', def: 'The process of identifying the need for an employee, defining the job, and attracting suitable candidates.' },
+  { topic: 't2', term: 'Recruitment agency', def: 'A business offering the service of recruiting applicants for vacant posts.' },
+  { topic: 't2', term: 'Selection', def: 'The series of steps by which candidates are interviewed, tested and screened to choose the most suitable person for the post.' },
+  { topic: 't2', term: 'Job description', def: 'A detailed list of the key points about the job to be filled — its tasks and responsibilities.' },
+  { topic: 't2', term: 'Person specification', def: 'A detailed list of the qualities, skills and qualifications a successful applicant will need.' },
+  { topic: 't2', term: 'Application form', def: 'A set of questions answered by a job applicant to give a potential employer information such as educational background and work experience.' },
+  { topic: 't2', term: 'Curriculum vitae (CV)', def: 'A detailed document highlighting all of a person\'s professional and academic achievements, work experience and awards.' },
+  { topic: 't2', term: 'Resume', def: 'A less detailed document than a CV, itemising work experience, education and special skills relevant to the job.' },
+  { topic: 't2', term: 'Reference', def: 'A comment from a trusted person about an applicant\'s character or previous work performance.' },
+  { topic: 't2', term: 'Internal recruitment', def: 'When a business aims to fill a vacancy from within its existing workforce.' },
+  { topic: 't2', term: 'External recruitment', def: 'When a business aims to fill a vacancy with a suitable applicant from outside the business.' },
+  { topic: 't2', term: 'Employment contract', def: 'A legal document that sets out the terms and conditions governing a worker\'s job.' },
+  { topic: 't2', term: 'Labour turnover', def: 'The rate at which employees leave an organisation: (number leaving in 1 year ÷ average employees) × 100.' },
+  { topic: 't2', term: 'Training', def: 'Work-related education to increase workforce skill and efficiency.' },
+  { topic: 't2', term: 'Induction training', def: 'Introductory training programme to familiarise new recruits with the systems and layout of the business.' },
+  { topic: 't2', term: 'On-the-job training', def: 'Instruction at the workplace on how a job should be carried out.' },
+  { topic: 't2', term: 'Off-the-job training', def: 'All training undertaken away from the business, e.g. work-related college courses.' },
+  { topic: 't2', term: 'Multi-skilling', def: 'Training an employee in several skills to allow greater flexibility within the business.' },
+  { topic: 't2', term: 'Employee appraisal', def: 'The process of assessing the effectiveness of an employee judged against pre-set objectives.' },
+  { topic: 't2', term: 'Dismissal', def: 'Being dismissed or sacked from a job due to incompetence or breach of discipline.' },
+  { topic: 't2', term: 'Unfair dismissal', def: 'Ending a worker\'s employment contract for a reason that the law regards as unfair.' },
+  { topic: 't2', term: 'Redundancy', def: 'When a job is no longer required and the employee doing it becomes unnecessary through no fault of their own.' },
+  { topic: 't2', term: 'Employee morale', def: 'Overall outlook, attitude and level of satisfaction of employees at work.' },
+  { topic: 't2', term: 'Employee welfare', def: 'Employee\'s health, safety and level of morale at work.' },
+  { topic: 't2', term: 'Motivation', def: 'The internal and external factors that stimulate people to take actions leading to a goal.' },
+  { topic: 't2', term: 'Self-actualisation', def: 'A sense of fulfilment reached by feeling enriched and developed by what one has learned and achieved.' },
+  { topic: 't2', term: 'Motivating factors (motivators)', def: 'Aspects of a worker\'s job that lead to positive job satisfaction — achievement, recognition, meaningful work, advancement.' },
+  { topic: 't2', term: 'Hygiene factor', def: 'Aspects of a worker\'s job with the potential to cause dissatisfaction — pay, working conditions, status, over-supervision.' },
+  { topic: 't2', term: 'Job enrichment', def: 'Aiming to use workers\' full capabilities by giving them more challenging and fulfilling work.' },
+  { topic: 't2', term: 'Time-based wage rate', def: 'Payment to a worker for each period of time worked — for example, one hour.' },
+  { topic: 't2', term: 'Piece rate', def: 'A payment to a worker for each unit produced.' },
+  { topic: 't2', term: 'Salary', def: 'Annual income usually paid on a monthly basis.' },
+  { topic: 't2', term: 'Commission', def: 'A payment to a salesperson for each sale made.' },
+  { topic: 't2', term: 'Bonus', def: 'A payment made in addition to the contracted wage or salary.' },
+  { topic: 't2', term: 'Profit sharing', def: 'A bonus for staff based on the profits of the business — usually paid as a proportion of basic salary.' },
+  { topic: 't2', term: 'Share-ownership scheme', def: 'A scheme that gives employees shares in the company they work for or allows them to buy them at a discount.' },
+  { topic: 't2', term: 'Performance-related pay', def: 'A bonus scheme to reward staff for above-average work performance.' },
+  { topic: 't2', term: 'Fringe benefits', def: 'Benefits given separately from pay by an employer to some or all employees.' },
+  { topic: 't2', term: 'Job rotation', def: 'Increasing the flexibility of employees in the variety of work they do by switching from one job to another.' },
+  { topic: 't2', term: 'Job enlargement', def: 'Attempting to increase the scope of a job by broadening or deepening the tasks undertaken.' },
+  { topic: 't2', term: 'Job redesign', def: 'Restructuring a job — usually with employees\' involvement and agreement — to make work more interesting, satisfying and challenging.' },
+  { topic: 't2', term: 'Work-life balance', def: 'A situation in which an employee is able to give the right amount of time and effort to work and personal life.' },
+  { topic: 't2', term: 'Equality policy', def: 'Practices and processes aimed at achieving a fair organisation where everyone is treated the same without prejudice.' },
+  { topic: 't2', term: 'Diversity policy', def: 'Practices and processes aimed at creating a mixed workforce and placing positive value on diversity in the workplace.' },
+  { topic: 't2', term: 'Industrial action', def: 'Measures taken by the workforce or trade union to put pressure on management to settle an industrial dispute.' },
+  { topic: 't2', term: 'Collective bargaining', def: 'The process of negotiating terms of employment between an employer and a group of workers represented by a trade union.' },
+  { topic: 't2', term: 'Trade union recognition', def: 'When an employer formally agrees to conduct negotiations on pay and working conditions with a trade union.' },
+  { topic: 't2', term: 'Development', def: 'The gaining of new or advanced skills and knowledge as well as opportunities to apply what is gained.' },
+  { topic: 't2', term: 'Empowerment', def: 'Giving skills, resources, authority and opportunity to employees so that they can take decisions and be accountable for their work.' },
+  { topic: 't2', term: 'Quality circles', def: 'Voluntary groups of workers who meet regularly to discuss work-related problems and issues.' },
+  { topic: 't2', term: 'Worker participation', def: 'When workers are actively encouraged to become involved in decision-making within the organisation.' },
+  { topic: 't2', term: 'Team working', def: 'Production organised so that groups of workers undertake complete units of work.' },
+  { topic: 't2', term: 'Manager', def: 'Responsible for setting objectives, organising resources and motivating staff to meet the organisation\'s aims.' },
+  { topic: 't2', term: 'Management', def: 'The organisation and coordination of activities to achieve the defined objectives of the business.' },
+  { topic: 't2', term: 'Leadership', def: 'The art of motivating a group towards achieving common objectives.' },
+  { topic: 't2', term: 'Autocratic leadership', def: 'A style of leadership that keeps all decision-making at the centre of the organisation.' },
+  { topic: 't2', term: 'Democratic leadership', def: 'A leadership style that promotes workers\' active participation in decisions.' },
+  { topic: 't2', term: 'Paternalistic leadership', def: 'A leadership style based on the manager being in a better position than workers to know what is best for the organisation.' },
+  { topic: 't2', term: 'Laissez-faire leadership', def: 'A hands-off style that leaves much business decision-making to the workforce — the reverse of autocratic.' },
+  { topic: 't2', term: 'Informal leader', def: 'A person with no formal authority but the respect of colleagues and some power over them.' },
+  { topic: 't2', term: 'Emotional intelligence (EI)', def: 'The ability of managers to understand their own emotions, and those of others they work with, to achieve better business performance.' },
+  { topic: 't2', term: 'McGregor\'s Theory X', def: 'The view that some managers believe employees are lazy, fear-motivated and in need of constant direction.' },
+  { topic: 't2', term: 'McGregor\'s Theory Y', def: 'The view that some managers believe employees are internally motivated, enjoy work, and are prepared to take on responsibility.' },
+
+  // ============== TOPIC 3 ==============
+  { topic: 't3', term: 'Marketing', def: 'The management task that links the business to customers by identifying and meeting their needs profitably — getting the right product to the right place at the right time.' },
+  { topic: 't3', term: 'Marketing objectives', def: 'The goals set for the marketing department to help the business achieve its overall objectives.' },
+  { topic: 't3', term: 'Corporate objectives', def: 'Well-defined and realistic goals set for the whole company.' },
+  { topic: 't3', term: 'Marketing strategy', def: 'A long-term plan established for achieving marketing objectives.' },
+  { topic: 't3', term: 'Industrial market', def: 'The selling of products by businesses to other businesses — also known as B2B.' },
+  { topic: 't3', term: 'Consumer market', def: 'The selling of products by businesses to the final end user — also known as B2C.' },
+  { topic: 't3', term: 'Market orientation', def: 'An outward-looking approach basing product decisions on consumer demand, established by market research.' },
+  { topic: 't3', term: 'Asset-led marketing', def: 'An approach to marketing that bases strategy on the firm\'s existing strengths and assets rather than purely on customer wants.' },
+  { topic: 't3', term: 'Product orientation', def: 'An inward-looking approach focused on making products that can be made (or have been made for a long time) and trying to sell them.' },
+  { topic: 't3', term: 'Social marketing', def: 'An approach considering not only the demands of consumers but also the effects on all members of the public when firms meet these demands.' },
+  { topic: 't3', term: 'Demand', def: 'The quantity of a product consumers are willing and able to buy at a given price in a time period.' },
+  { topic: 't3', term: 'Supply', def: 'The quantity of a product firms are prepared to supply at a given price in a time period.' },
+  { topic: 't3', term: 'Equilibrium price', def: 'The market price that equates supply and demand for a product.' },
+  { topic: 't3', term: 'Market size', def: 'The total level of sales of all producers within a market.' },
+  { topic: 't3', term: 'Market growth', def: 'The percentage change in the total size of a market (volume or value) over a period of time.' },
+  { topic: 't3', term: 'Brand leader', def: 'The brand with the highest share of the market.' },
+  { topic: 't3', term: 'Direct competitor', def: 'A business that provides the same or very similar goods or services.' },
+  { topic: 't3', term: 'Consumer products', def: 'Goods or services sold to end users.' },
+  { topic: 't3', term: 'Industrial products', def: 'Goods or services sold to businesses.' },
+  { topic: 't3', term: 'Niche marketing', def: 'Identifying and exploiting a small segment of a larger market by developing products to suit it.' },
+  { topic: 't3', term: 'Mass marketing', def: 'Selling the same products to the whole market with no attempt to target groups within it.' },
+  { topic: 't3', term: 'Consumer profile', def: 'A quantified picture of consumers of a firm\'s products — proportions of age groups, income levels, location, gender, social class.' },
+  { topic: 't3', term: 'Customer relationship marketing (CRM)', def: 'Using marketing activities to build and establish good customer relationships so the loyalty of existing customers can be maintained.' },
+  { topic: 't3', term: 'Market segment', def: 'A sub-group of a whole market in which consumers have similar characteristics.' },
+  { topic: 't3', term: 'Market segmentation', def: 'Identifying different segments within a market and targeting different products or services to them.' },
+  { topic: 't3', term: 'Market research', def: 'The process of collecting, recording, and analysing data about customers, competitors, and the market.' },
+  { topic: 't3', term: 'Primary research', def: 'The collection of first-hand data directly related to a firm\'s needs.' },
+  { topic: 't3', term: 'Secondary research', def: 'A collection of data from second-hand sources.' },
+  { topic: 't3', term: 'Qualitative research', def: 'Research into the in-depth motivations behind consumer buying behaviour or opinions.' },
+  { topic: 't3', term: 'Quantitative research', def: 'Research that leads to numerical results that can be statistically analysed.' },
+  { topic: 't3', term: 'Focus groups', def: 'A group of people asked about their attitudes towards a product, service, advertisement or new packaging.' },
+  { topic: 't3', term: 'Sample', def: 'The group of people participating in market research, selected to represent the overall target market.' },
+  { topic: 't3', term: 'Sampling', def: 'The process of selecting a group of respondents from a larger population.' },
+  { topic: 't3', term: 'Sampling bias', def: 'When a sample is not a good representation of the whole population because it is chosen in ways that give some people a greater chance of being selected.' },
+  { topic: 't3', term: 'Arithmetic mean', def: 'The value calculated by totalling all the results and dividing by the number of results.' },
+  { topic: 't3', term: 'Mode', def: 'The value that occurs most frequently in a set of data.' },
+  { topic: 't3', term: 'Median', def: 'The value of the middle item when data has been ordered or ranked. Divides the data into two equal parts.' },
+  { topic: 't3', term: 'Range', def: 'The difference between the highest and lowest value in a data set.' },
+  { topic: 't3', term: 'Coding', def: 'The process of labelling and organising qualitative data to identify the main themes and links between them.' },
+  { topic: 't3', term: 'Marketing mix', def: 'The four key decisions that must be taken to effectively market a product — Product, Price, Promotion, Place.' },
+  { topic: 't3', term: 'Brand', def: 'An identifying symbol, image or trademark that distinguishes a product from its competitors.' },
+  { topic: 't3', term: 'Intangible attributes of a product', def: 'Subjective opinions of customers about a product that cannot be measured or compared easily.' },
+  { topic: 't3', term: 'Tangible attributes of a product', def: 'Measurable features of a product that can be easily compared with other products.' },
+  { topic: 't3', term: 'Product', def: 'The end result of the production process sold on the market to satisfy a customer need.' },
+  { topic: 't3', term: 'Goods', def: 'Products with a physical existence, such as washing machines and chocolate bars.' },
+  { topic: 't3', term: 'Services', def: 'Products with no physical existence but that satisfy consumer needs in other ways, such as banking.' },
+  { topic: 't3', term: 'USP (unique selling point)', def: 'The special feature of a product that differentiates it from competitors\' products.' },
+  { topic: 't3', term: 'Product differentiation', def: 'Making a product distinctive so it stands out from competitors\' products in consumers\' perception.' },
+  { topic: 't3', term: 'Product positioning', def: 'The consumer perception of a product or service compared to its competitors.' },
+  { topic: 't3', term: 'Product portfolio analysis', def: 'Analysing the range of existing products of a business to help allocate resources effectively between them.' },
+  { topic: 't3', term: 'Product life cycle', def: 'The pattern of sales recorded by a product from launch to withdrawal from the market.' },
+  { topic: 't3', term: 'Extension strategy', def: 'Marketing plans to extend the maturity stage of the product before a brand new one is needed.' },
+  { topic: 't3', term: 'Consumer durable', def: 'A manufactured product that can be reused and is expected to have a reasonably long life — a car, a washing machine.' },
+  { topic: 't3', term: 'Boston Matrix', def: 'A method of analysing the product portfolio of a business in terms of market share and market growth.' },
+  { topic: 't3', term: 'Markup pricing', def: 'Adding a fixed mark-up for profit to the unit price of a product.' },
+  { topic: 't3', term: 'Target pricing', def: 'Setting a price that will give a required rate of return at a certain level of output or sales.' },
+  { topic: 't3', term: 'Cost-plus (full-cost) pricing', def: 'Setting a price by calculating a unit cost (allocated fixed and variable costs) and adding a fixed profit margin.' },
+  { topic: 't3', term: 'Contribution-cost pricing', def: 'Setting prices based on variable costs to make a contribution towards fixed costs and profits.' },
+  { topic: 't3', term: 'Competition-based pricing', def: 'A firm bases its price on the price set by its competitors.' },
+  { topic: 't3', term: 'Price discrimination', def: 'Charging different groups of consumers different prices for the same good or service.' },
+  { topic: 't3', term: 'Penetration pricing', def: 'Setting a relatively low price, often supported by strong promotion, to achieve a high volume of sales.' },
+  { topic: 't3', term: 'Dynamic pricing', def: 'Offering goods at a price that changes according to the current level of demand and customers\' ability to pay.' },
+  { topic: 't3', term: 'Market skimming', def: 'Setting a high price for a new product when a firm has a unique or highly differentiated product with low price elasticity of demand.' },
+  { topic: 't3', term: 'Psychological pricing', def: 'Setting a price at a level that matches consumers\' views about a product\'s perceived value.' },
+  { topic: 't3', term: 'Promotion', def: 'The use of advertising, sales promotion, personal selling, direct mail, trade fairs, sponsorship and public relations to inform and persuade consumers.' },
+  { topic: 't3', term: 'Direct promotion', def: 'A range of promotional activities aimed directly at target customers — also known as direct marketing.' },
+  { topic: 't3', term: 'Promotion mix', def: 'The contribution of a firm\'s promotional techniques to sell a product.' },
+  { topic: 't3', term: 'Advertising', def: 'Paid-for communication with consumers to inform and persuade — for example, TV and cinema advertising.' },
+  { topic: 't3', term: 'Sales promotion', def: 'Incentives such as special offers or deals directed at consumers or retailers to achieve short-term sales increases.' },
+  { topic: 't3', term: 'Digital promotion', def: 'The promotion of products using digital technologies, mainly the internet but also including mobile phones.' },
+  { topic: 't3', term: 'Personal selling', def: 'A member of sales staff communicates with one consumer with the aim of selling and establishing a long-term relationship.' },
+  { topic: 't3', term: 'Sponsorship', def: 'Payment by a company to event organisers or teams/individuals so the company name becomes associated with the event/team.' },
+  { topic: 't3', term: 'Public relations', def: 'The deliberate use of free publicity provided by newspapers, TV and other media to communicate with and gain understanding from the public.' },
+  { topic: 't3', term: 'Marketing budget', def: 'The financial amount made available by a business for spending on marketing or promotion in a certain time period.' },
+  { topic: 't3', term: 'Channel of distribution', def: 'The chain of intermediaries a product passes through from producer to final consumer.' },
+  { topic: 't3', term: 'Internet (online) marketing', def: 'Advertising and marketing activities that use the internet, email and mobile communications to encourage direct sales via electronic commerce.' },
+  { topic: 't3', term: 'E-commerce', def: 'The buying and selling of goods and services by businesses and consumers through an electronic medium.' },
+  { topic: 't3', term: 'Digital distribution', def: 'The delivery or distribution of digital media content such as audio, video, TV programmes, films.' },
+  { topic: 't3', term: 'Integrated marketing strategy', def: 'When the key marketing decisions complement each other and work together to give customers a consistent message.' },
+
+  // ============== TOPIC 4 ==============
+  { topic: 't4', term: 'Intellectual capital', def: 'Intangible capital that includes human capital (well-trained employees), structural capital (databases) and relational capital (links with suppliers and customers).' },
+  { topic: 't4', term: 'Transformational process', def: 'An activity or group of activities that transforms one or more inputs, adds value, and produces outputs for customers.' },
+  { topic: 't4', term: 'Production', def: 'Converting inputs into outputs.' },
+  { topic: 't4', term: 'Level of production', def: 'The number of units produced during a time period.' },
+  { topic: 't4', term: 'Productivity', def: 'The ratio of outputs to inputs during production — for example, output per worker per time period.' },
+  { topic: 't4', term: 'Efficiency', def: 'Producing output at the highest ratio of output to input.' },
+  { topic: 't4', term: 'Effectiveness', def: 'Meeting the objectives of the enterprise by using inputs productively to meet customers\' needs.' },
+  { topic: 't4', term: 'Sustainability of operations', def: 'Business operations that can be maintained in the long term — for example, by protecting the environment and not damaging quality of life for future generations.' },
+  { topic: 't4', term: 'Labour intensive', def: 'Involving a high level of labour input compared with capital equipment.' },
+  { topic: 't4', term: 'Capital intensive', def: 'Involving a high quantity of capital equipment compared with labour input.' },
+  { topic: 't4', term: 'Job production', def: 'Producing a one-off item specially designed for the consumer.' },
+  { topic: 't4', term: 'Batch production', def: 'Producing a limited number of identical products — each item passes through one production stage before moving to the next.' },
+  { topic: 't4', term: 'Flow production', def: 'Producing items in a continually moving process.' },
+  { topic: 't4', term: 'Mass customisation', def: 'The use of flexible computer-aided production systems to produce items meeting individual customers\' requirements at mass-production cost levels.' },
+  { topic: 't4', term: 'Inventory (stock)', def: 'Materials and goods required to allow for the production and supply of products to the customer.' },
+  { topic: 't4', term: 'Economic order quantity', def: 'The optimum or least-cost stock to re-order, taking account of delivery and stock-holding costs.' },
+  { topic: 't4', term: 'Buffer inventories', def: 'The minimum level of inventory held to ensure production can continue if delivery is delayed or production rates increase.' },
+  { topic: 't4', term: 'Lead time', def: 'The time between ordering new supplies and their delivery.' },
+  { topic: 't4', term: 'Re-order quantity', def: 'The number of units ordered each time.' },
+  { topic: 't4', term: 'Re-order level', def: 'The level of inventory that triggers a new order to be sent to suppliers.' },
+  { topic: 't4', term: 'Supply chain', def: 'The network of all businesses and activities involved in creating a product, from delivery of raw materials to delivery of the finished product.' },
+  { topic: 't4', term: 'Supply chain management', def: 'Handling the entire production flow of a product (raw materials to finished product) to minimise costs and improve customer service.' },
+  { topic: 't4', term: 'Just-in-time (JIT)', def: 'An inventory-control method that aims to avoid holding inventories by requiring supplies to arrive just as needed and products to be produced to order.' },
+  { topic: 't4', term: 'Just-in-case (JIC)', def: 'Inventory management aimed at reducing the risk of running out of stock to a minimum by holding high buffer inventory levels.' },
+  { topic: 't4', term: 'Capacity utilisation', def: 'The proportion of maximum output capacity currently being achieved.' },
+  { topic: 't4', term: 'Outsourcing', def: 'Using another business (a third party) to undertake part of the production process rather than doing it within the business.' },
+  { topic: 't4', term: 'Maximum (full) capacity', def: 'The highest level of sustained output that can be achieved.' },
+  { topic: 't4', term: 'Excess capacity', def: 'Exists when current output is less than the full-capacity output of a business — also known as spare capacity.' },
+  { topic: 't4', term: 'Rationalisation', def: 'Reducing capacity by closing factories or production units.' },
+  { topic: 't4', term: 'Capacity shortage', def: 'When demand for a business\'s products exceeds production capacity.' },
+
+  // ============== TOPIC 5 ==============
+  { topic: 't5', term: 'Start-up capital', def: 'The capital needed by an entrepreneur to set up a business.' },
+  { topic: 't5', term: 'Working capital', def: 'The capital needed to pay for raw materials, day-to-day running costs and credit offered to customers. Current assets − current liabilities.' },
+  { topic: 't5', term: 'Profit', def: 'The value of goods sold (revenue) less costs.' },
+  { topic: 't5', term: 'Liquidity', def: 'The ability of a firm to pay its short-term debts.' },
+  { topic: 't5', term: 'Liquidation', def: 'When a firm ceases trading and assets are sold for cash to pay suppliers and other creditors.' },
+  { topic: 't5', term: 'Administration', def: 'When administrators manage a business that is unable to pay its debts, with the intention of selling it as a going concern.' },
+  { topic: 't5', term: 'Bankruptcy', def: 'The legal procedure for liquidating a business (or property of a sole trader) which cannot fully pay its debts from current assets.' },
+  { topic: 't5', term: 'Current assets', def: 'Assets that are cash or likely to be turned into cash within 12 months — inventory, trade receivables.' },
+  { topic: 't5', term: 'Current liabilities', def: 'Debts that usually have to be paid within one year.' },
+  { topic: 't5', term: 'Capital expenditure', def: 'The purchase of assets expected to last more than one year, such as buildings and machinery.' },
+  { topic: 't5', term: 'Revenue expenditure', def: 'Spending on costs and assets other than fixed assets — wages, salaries, materials bought for stock.' },
+  { topic: 't5', term: 'Internal sources of finance', def: 'Raising finance from a business\'s own assets or from profits left in the business.' },
+  { topic: 't5', term: 'External sources of finance', def: 'Raising finance from sources outside the business — for example, bank loans.' },
+  { topic: 't5', term: 'Retained earnings', def: 'Profit after tax retained in a company rather than paid out to shareholders as dividends.' },
+  { topic: 't5', term: 'Non-current assets', def: 'Assets kept and used by the business for more than one year.' },
+  { topic: 't5', term: 'Overdraft', def: 'When a bank agrees to a business borrowing up to an agreed limit as and when required.' },
+  { topic: 't5', term: 'Factoring', def: 'Selling claims over trade receivables to a debt factor in exchange for immediate liquidity — only a proportion of the value is received.' },
+  { topic: 't5', term: 'Hire purchase', def: 'An asset is sold to a company that agrees to pay fixed repayments over an agreed time period — the asset belongs to the company.' },
+  { topic: 't5', term: 'Leasing', def: 'Obtaining the use of equipment or vehicles by paying a rental or leasing charge over a fixed period — ownership stays with the leasing company.' },
+  { topic: 't5', term: 'Equity finance', def: 'Permanent finance raised by companies through the sale of shares.' },
+  { topic: 't5', term: 'Long-term loans', def: 'Loans that do not have to be repaid for at least one year.' },
+  { topic: 't5', term: 'Long-term bonds (debentures)', def: 'Bonds issued by companies to raise debt finance, often with a fixed rate of interest.' },
+  { topic: 't5', term: 'Collateral security', def: 'An asset a business pledges to a lender, which must be sold off to pay the debt if the loan is not repaid.' },
+  { topic: 't5', term: 'Rights issue', def: 'Existing shareholders are given the right to buy additional shares at a discounted price.' },
+  { topic: 't5', term: 'Venture capital', def: 'Risk capital invested in start-ups or expanding small businesses with good profit potential but little access to other finance.' },
+  { topic: 't5', term: 'Crowdfunding', def: 'The use of small amounts of capital from a large number of individuals to finance a new business venture.' },
+  { topic: 't5', term: 'Microfinance', def: 'Providing financial services for poor and low-income customers who do not have access to banking services such as loans and overdrafts.' },
+  { topic: 't5', term: 'Cash flow', def: 'The sum of cash payments to a business (inflows) less the sum of cash payments out (outflows).' },
+  { topic: 't5', term: 'Insolvent', def: 'When a business cannot meet its short-term debts.' },
+  { topic: 't5', term: 'Cash inflows', def: 'Payments in cash received by a business — from customers (trade receivables), bank loans, and so on.' },
+  { topic: 't5', term: 'Cash outflows', def: 'Payments in cash made by a business — to suppliers, workers, lenders and so on.' },
+  { topic: 't5', term: 'Cash-flow forecast', def: 'An estimate of a firm\'s future cash inflows and outflows.' },
+  { topic: 't5', term: 'Net monthly cash flow', def: 'The estimated difference between monthly cash inflows and cash outflows.' },
+  { topic: 't5', term: 'Opening cash balance', def: 'Cash held by the business at the start of the month.' },
+  { topic: 't5', term: 'Closing cash balance', def: 'Cash held at the end of the month — becomes next month\'s opening balance.' },
+  { topic: 't5', term: 'Overtrading', def: 'Expanding a business rapidly without obtaining all of the necessary finance, so a cash-flow shortage develops.' },
+  { topic: 't5', term: 'Credit control', def: 'Monitoring of debts to ensure that credit periods are not exceeded.' },
+  { topic: 't5', term: 'Bad debt', def: 'Unpaid customers\' bills that are now very unlikely ever to be paid.' },
+  { topic: 't5', term: 'Creditors', def: 'Suppliers who have agreed to supply products on credit and who have not yet been paid.' },
+  { topic: 't5', term: 'Cost centre', def: 'The section of a business — such as a department or product — that incurs the costs.' },
+  { topic: 't5', term: 'Profit centre', def: 'The section of a business to which both costs and revenues can be allocated so profit can be calculated.' },
+  { topic: 't5', term: 'Direct costs', def: 'Costs that can be clearly identified with each unit of production and allocated to a cost centre.' },
+  { topic: 't5', term: 'Variable costs', def: 'Costs that vary with output.' },
+  { topic: 't5', term: 'Fixed costs', def: 'Costs that do not vary with output in the short run.' },
+  { topic: 't5', term: 'Total cost', def: 'Variable costs plus fixed costs.' },
+  { topic: 't5', term: 'Average cost', def: 'Total cost divided by the number of units produced.' },
+  { topic: 't5', term: 'Full costing', def: 'A method of costing in which all indirect and direct costs are allocated to the products, services, or divisions of a business.' },
+  { topic: 't5', term: 'Marginal costs', def: 'The extra cost of producing one more unit of output.' },
+  { topic: 't5', term: 'Indirect costs', def: 'Costs that cannot be identified with a unit of production or allocated accurately to a cost centre.' },
+  { topic: 't5', term: 'Break-even point of production', def: 'The level of output at which total costs equal total revenue — neither a profit nor a loss is made.' },
+  { topic: 't5', term: 'Margin of safety', def: 'The amount by which sales level exceeds the break-even level of output.' },
+  { topic: 't5', term: 'Contribution per unit', def: 'Selling price less variable cost per unit.' },
+  { topic: 't5', term: 'Budgeting', def: 'Planning future activities by establishing performance targets, especially financial ones.' },
+  { topic: 't5', term: 'Budget holder', def: 'The individual responsible for the initial setting and achievement of a budget.' },
+  { topic: 't5', term: 'Variance analysis', def: 'Calculation of the differences between budgets and actual figures, and analysis of the reasons for those differences.' },
+  { topic: 't5', term: 'Delegated budgets', def: 'Budgets for which junior managers have been given some authority for setting and achieving.' },
+  { topic: 't5', term: 'Incremental budgeting', def: 'Uses last year\'s budget as a basis with an adjustment made for the coming year.' },
+  { topic: 't5', term: 'Zero budgeting', def: 'Setting budgets to zero each year — budget holders must argue their case for target levels and any finance.' },
+  { topic: 't5', term: 'Favourable variance', def: 'A change from the budget that leads to higher than planned profit.' },
+  { topic: 't5', term: 'Flexible budgeting', def: 'Cost budgets for each expense are allowed to vary if sales or output vary from budgeted levels.' },
+  { topic: 't5', term: 'Adverse variance', def: 'A change from the budget that leads to lower than planned profit.' },
+];
+
+/* ============================================== */
+/* ===== FLASHCARD RENDERING                 ===== */
+/* ============================================== */
+const cardStats = document.getElementById('cardStats');
+const cardSearch = document.getElementById('cardSearch');
+const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+const activeCard = document.getElementById('activeCard');
+const cardTerm = document.getElementById('cardTerm');
+const cardDef = document.getElementById('cardDef');
+const cardTagFront = document.getElementById('cardTagFront');
+const cardTagBack = document.getElementById('cardTagBack');
+const prevBtn = document.getElementById('prevCard');
+const nextBtn = document.getElementById('nextCard');
+const progressFill = document.getElementById('progressFill');
+const deckStage = document.getElementById('deckStage');
+const noResults = document.getElementById('noResults');
+
+let currentFilter = 'all';
+let currentSearch = '';
+let activeDeck = [];
+let currentIdx = 0;
+
+const topicLabel = { t1: 'Topic 1 · Environment', t2: 'Topic 2 · HR', t3: 'Topic 3 · Marketing', t4: 'Topic 4 · Operations', t5: 'Topic 5 · Finance' };
+
+function buildDeck() {
+  activeDeck = flashcards.filter(c => {
+    const matchTopic = currentFilter === 'all' || c.topic === currentFilter;
+    const matchSearch = !currentSearch ||
+      c.term.toLowerCase().includes(currentSearch) ||
+      c.def.toLowerCase().includes(currentSearch);
+    return matchTopic && matchSearch;
+  });
+  currentIdx = 0;
+  renderActiveCard();
+}
+
+function renderActiveCard() {
+  if (activeDeck.length === 0) {
+    deckStage.style.display = 'none';
+    noResults.style.display = 'block';
+    cardStats.textContent = '0 cards';
+    return;
+  }
+  deckStage.style.display = 'block';
+  noResults.style.display = 'none';
+
+  const card = activeDeck[currentIdx];
+  // un-flip before changing content
+  activeCard.classList.remove('flipped');
+
+  // small delay so the flip-back doesn't show new text mid-animation
+  setTimeout(() => {
+    cardTerm.textContent = card.term;
+    cardDef.textContent = card.def;
+    cardTagFront.textContent = topicLabel[card.topic];
+    cardTagBack.textContent = topicLabel[card.topic] + ' · Definition';
+  }, activeCard.classList.contains('flipped') ? 300 : 0);
+
+  cardStats.innerHTML = `<span class="current">${currentIdx + 1}</span> / ${activeDeck.length} · click card to flip`;
+  progressFill.style.width = `${((currentIdx + 1) / activeDeck.length) * 100}%`;
+  prevBtn.disabled = currentIdx === 0;
+  nextBtn.disabled = currentIdx === activeDeck.length - 1;
+}
+
+function flipCard() {
+  activeCard.classList.toggle('flipped');
+}
+
+function navigateCard(delta) {
+  const newIdx = currentIdx + delta;
+  if (newIdx < 0 || newIdx >= activeDeck.length) return;
+  currentIdx = newIdx;
+  renderActiveCard();
+}
+
+function shuffleDeck() {
+  for (let i = activeDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [activeDeck[i], activeDeck[j]] = [activeDeck[j], activeDeck[i]];
+  }
+  currentIdx = 0;
+  renderActiveCard();
+}
+
+function resetDeck() {
+  buildDeck();
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  // only act when flashcards page is visible
+  if (!document.getElementById('flashcards').classList.contains('active')) return;
+  // ignore if user is typing in the search box
+  if (document.activeElement === cardSearch) return;
+
+  if (e.key === 'ArrowRight') { e.preventDefault(); navigateCard(1); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); navigateCard(-1); }
+  else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
+});
+
+filterBtns.forEach(btn => btn.addEventListener('click', () => {
+  filterBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.filter;
+  buildDeck();
+}));
+
+cardSearch.addEventListener('input', e => {
+  currentSearch = e.target.value.trim().toLowerCase();
+  buildDeck();
+});
+
+buildDeck();
+
+/* ============================================== */
+/* ===== INTERACTIVE GRAPHS                  ===== */
+/* ============================================== */
+let plcChart, marketChart, breakevenChart, bostonChart;
+let graphsInitialised = false;
+
+const COLORS = {
+  ink: '#1a1410',
+  paper: '#f5efe6',
+  accent: '#b03a2e',
+  gold: '#c9a14a',
+  sage: '#5e7350',
+  indigo: '#2c3e5c',
+  rose: '#c97b8c',
+  line: 'rgba(26, 20, 16, 0.12)',
+};
+
+const PLC_DATA = {
+  smartphone: {
+    name: 'Smartphone',
+    color: COLORS.indigo,
+    data: [0, 5, 15, 35, 70, 95, 110, 115, 110, 95, 70, 40, 18],
+    insights: { dev: '6 months', launch: '$899', peak: 'Month 7', life: '~3 years' },
+    note: 'Steep growth, sharp decline as new model arrives. Extension via colours and storage variants.'
+  },
+  luxury: {
+    name: 'Luxury Watch',
+    color: COLORS.gold,
+    data: [0, 3, 8, 15, 22, 28, 32, 35, 36, 36, 35, 33, 30],
+    insights: { dev: '2+ years', launch: '$8,500', peak: 'Year 8', life: '15+ years' },
+    note: 'Slow build, very long maturity. Heritage and craftsmanship slow the decline. Skimming pricing throughout.'
+  },
+  fashion: {
+    name: 'Fast Fashion',
+    color: COLORS.rose,
+    data: [0, 20, 65, 95, 75, 30, 8, 2, 0, 0, 0, 0, 0],
+    insights: { dev: '4 weeks', launch: '$24', peak: 'Month 3', life: '~6 months' },
+    note: 'Explosive launch, brutal decline. Penetration pricing; clearance sales accelerate the curve.'
+  },
+  streaming: {
+    name: 'Streaming Service',
+    color: COLORS.sage,
+    data: [0, 8, 22, 45, 65, 80, 88, 92, 93, 92, 90, 87, 84],
+    insights: { dev: '18 months', launch: '$8.99/mo', peak: 'Year 7', life: 'Ongoing' },
+    note: 'Subscription model creates a long, slowly maturing curve. Continuous content keeps decline gradual.'
+  }
+};
+
+function initPLC() {
+  const ctx = document.getElementById('plcChart').getContext('2d');
+  if (plcChart) plcChart.destroy();
+
+  const initial = PLC_DATA.smartphone;
+  const labels = ['Dev', 'Launch', 'M2', 'M4', 'M6', 'M8', 'M10', 'M12', 'M14', 'M16', 'M18', 'M20', 'M24'];
+
+  plcChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: initial.name + ' — sales',
+        data: initial.data,
+        borderColor: initial.color,
+        backgroundColor: initial.color + '20',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 6,
+        borderWidth: 3
+      }]
+    },
+    options: chartOptions('Time (relative)', 'Sales (units)')
+  });
+
+  updatePLCMeta('smartphone');
+
+  document.querySelectorAll('#plcTabs .chart-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('#plcTabs .chart-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const key = tab.dataset.plc;
+      const product = PLC_DATA[key];
+      plcChart.data.datasets[0].data = product.data;
+      plcChart.data.datasets[0].label = product.name + ' — sales';
+      plcChart.data.datasets[0].borderColor = product.color;
+      plcChart.data.datasets[0].backgroundColor = product.color + '20';
+      plcChart.update();
+      updatePLCMeta(key);
+    });
+  });
+}
+
+function updatePLCMeta(key) {
+  const p = PLC_DATA[key];
+  document.getElementById('plcMeta').innerHTML = `
+    <div class="chart-meta-item"><div class="label">Development</div><div class="value">${p.insights.dev}</div></div>
+    <div class="chart-meta-item"><div class="label">Launch price</div><div class="value">${p.insights.launch}</div></div>
+    <div class="chart-meta-item"><div class="label">Peak sales</div><div class="value">${p.insights.peak}</div></div>
+    <div class="chart-meta-item"><div class="label">Total life span</div><div class="value">${p.insights.life}</div></div>
+    <div style="grid-column: 1 / -1; padding-top: 0.8rem; border-top: 1px solid var(--line); font-size:0.88rem; color: var(--ink-soft); font-style: italic">${p.note}</div>
+  `;
+}
+
+function chartOptions(xTitle, yTitle) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        labels: {
+          color: COLORS.ink,
+          font: { family: 'Inter Tight', size: 12, weight: '500' },
+          usePointStyle: true,
+          padding: 16
+        }
+      },
+      tooltip: {
+        backgroundColor: COLORS.ink,
+        titleColor: COLORS.gold,
+        bodyColor: COLORS.paper,
+        padding: 12,
+        cornerRadius: 6,
+        titleFont: { family: 'Fraunces', weight: '500', size: 13 },
+        bodyFont: { family: 'JetBrains Mono', size: 11 }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: xTitle, color: COLORS.ink, font: { family: 'JetBrains Mono', size: 11 } },
+        grid: { color: COLORS.line },
+        ticks: { color: COLORS.ink, font: { family: 'JetBrains Mono', size: 10 } }
+      },
+      y: {
+        title: { display: true, text: yTitle, color: COLORS.ink, font: { family: 'JetBrains Mono', size: 11 } },
+        grid: { color: COLORS.line },
+        ticks: { color: COLORS.ink, font: { family: 'JetBrains Mono', size: 10 } }
+      }
+    }
+  };
+}
+
+/* ===== Market Equilibrium ===== */
+function initMarket() {
+  const ctx = document.getElementById('marketChart').getContext('2d');
+  if (marketChart) marketChart.destroy();
+
+  const prices = Array.from({length: 11}, (_, i) => i * 5);
+  
+  marketChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: prices,
+      datasets: [
+        {
+          label: 'Demand',
+          data: prices.map(p => 200 - 4*p),
+          borderColor: COLORS.accent,
+          backgroundColor: 'transparent',
+          tension: 0,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          borderWidth: 3
+        },
+        {
+          label: 'Supply',
+          data: prices.map(p => 4*p),
+          borderColor: COLORS.indigo,
+          backgroundColor: 'transparent',
+          tension: 0,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          borderWidth: 3
+        }
+      ]
+    },
+    options: chartOptions('Price ($)', 'Quantity')
+  });
+
+  updateMarket();
+
+  document.getElementById('demandShift').addEventListener('input', updateMarket);
+  document.getElementById('supplyShift').addEventListener('input', updateMarket);
+  document.getElementById('resetMarket').addEventListener('click', () => {
+    document.getElementById('demandShift').value = 0;
+    document.getElementById('supplyShift').value = 0;
+    updateMarket();
+  });
+}
+
+function updateMarket() {
+  const dShift = parseInt(document.getElementById('demandShift').value);
+  const sShift = parseInt(document.getElementById('supplyShift').value);
+  document.getElementById('demandShiftVal').textContent = dShift > 0 ? '+' + dShift : dShift;
+  document.getElementById('supplyShiftVal').textContent = sShift > 0 ? '+' + sShift : sShift;
+
+  const prices = Array.from({length: 11}, (_, i) => i * 5);
+  const demandData = prices.map(p => Math.max(0, 200 - 4*p + dShift*2));
+  const supplyData = prices.map(p => Math.max(0, 4*p - sShift*2));
+
+  marketChart.data.datasets[0].data = demandData;
+  marketChart.data.datasets[1].data = supplyData;
+  marketChart.update();
+
+  // Find equilibrium: 200 - 4p + 2d = 4p - 2s  →  p = (200 + 2d + 2s) / 8
+  const eqP = (200 + 2*dShift + 2*sShift) / 8;
+  const eqQ = Math.max(0, 200 - 4*eqP + 2*dShift);
+  document.getElementById('eqPrice').textContent = '$' + eqP.toFixed(2);
+  document.getElementById('eqQty').textContent = Math.round(eqQ);
+  document.getElementById('eqValue').textContent = '$' + (eqP * eqQ).toLocaleString(undefined, {maximumFractionDigits: 0});
+}
+
+/* ===== Break-even ===== */
+function initBreakEven() {
+  const ctx = document.getElementById('breakevenChart').getContext('2d');
+  if (breakevenChart) breakevenChart.destroy();
+
+  breakevenChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [
+        { label: 'Total revenue', data: [], borderColor: COLORS.sage, backgroundColor: 'transparent', borderWidth: 3, pointRadius: 0, tension: 0 },
+        { label: 'Total cost', data: [], borderColor: COLORS.accent, backgroundColor: 'transparent', borderWidth: 3, pointRadius: 0, tension: 0 },
+        { label: 'Fixed cost', data: [], borderColor: COLORS.gold, backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, tension: 0, borderDash: [6, 4] }
+      ]
+    },
+    options: chartOptions('Output (units)', 'Cost / Revenue ($)')
+  });
+
+  ['bePrice', 'beVC', 'beFC', 'beSales'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateBreakEven);
+  });
+  updateBreakEven();
+}
+
+function updateBreakEven() {
+  const price = parseFloat(document.getElementById('bePrice').value) || 0;
+  const vc = parseFloat(document.getElementById('beVC').value) || 0;
+  const fc = parseFloat(document.getElementById('beFC').value) || 0;
+  const sales = parseFloat(document.getElementById('beSales').value) || 0;
+
+  const contribution = price - vc;
+  const beUnits = contribution > 0 ? fc / contribution : 0;
+  const beRev = beUnits * price;
+  const mos = sales - beUnits;
+  const profit = (sales * contribution) - fc;
+
+  // Generate output range
+  const maxOutput = Math.max(beUnits * 2, sales * 1.3, 100);
+  const step = maxOutput / 12;
+  const labels = [];
+  const tr = [], tc = [], fix = [];
+  for (let q = 0; q <= maxOutput; q += step) {
+    labels.push(Math.round(q));
+    tr.push(q * price);
+    tc.push(fc + q * vc);
+    fix.push(fc);
+  }
+
+  breakevenChart.data.labels = labels;
+  breakevenChart.data.datasets[0].data = tr;
+  breakevenChart.data.datasets[1].data = tc;
+  breakevenChart.data.datasets[2].data = fix;
+  breakevenChart.update();
+
+  document.getElementById('beCont').textContent = '$' + contribution.toFixed(2);
+  document.getElementById('beUnits').textContent = isFinite(beUnits) ? Math.round(beUnits).toLocaleString() : 'N/A';
+  document.getElementById('beRev').textContent = '$' + Math.round(beRev).toLocaleString();
+  document.getElementById('beMOS').textContent = Math.round(mos).toLocaleString() + ' units';
+  document.getElementById('beProfit').textContent = (profit >= 0 ? '$' : '-$') + Math.abs(Math.round(profit)).toLocaleString();
+  document.getElementById('beProfit').style.color = profit >= 0 ? COLORS.sage : COLORS.accent;
+}
+
+/* ===== Boston Matrix ===== */
+function initBoston() {
+  const ctx = document.getElementById('bostonChart').getContext('2d');
+  if (bostonChart) bostonChart.destroy();
+
+  const products = [
+    { name: 'Premium Coffee Pods', share: 8.2, growth: 18, revenue: 28, color: COLORS.indigo },
+    { name: 'Energy Drinks', share: 6.5, growth: 22, revenue: 22, color: COLORS.indigo },
+    { name: 'Instant Coffee', share: 9.8, growth: 2, revenue: 45, color: COLORS.gold },
+    { name: 'Tea Bags', share: 7.4, growth: 1, revenue: 30, color: COLORS.gold },
+    { name: 'Plant-Based Milk', share: 1.8, growth: 25, revenue: 8, color: COLORS.rose },
+    { name: 'Cold Brew', share: 2.1, growth: 17, revenue: 10, color: COLORS.rose },
+    { name: 'Boxed Juice', share: 1.5, growth: 1.5, revenue: 12, color: COLORS.accent }
+  ];
+
+  bostonChart = new Chart(ctx, {
+    type: 'bubble',
+    data: {
+      datasets: products.map(p => ({
+        label: p.name,
+        data: [{ x: p.share, y: p.growth, r: Math.sqrt(p.revenue) * 3 }],
+        backgroundColor: p.color + 'cc',
+        borderColor: p.color,
+        borderWidth: 2
+      }))
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { color: COLORS.ink, font: { family: 'Inter Tight', size: 11 }, usePointStyle: true, padding: 8 }
+        },
+        tooltip: {
+          backgroundColor: COLORS.ink,
+          titleColor: COLORS.gold,
+          bodyColor: COLORS.paper,
+          padding: 12,
+          callbacks: {
+            label: function(context) {
+              const p = products[context.datasetIndex];
+              return [
+                p.name,
+                `Share: ${p.share}%`,
+                `Growth: ${p.growth}%`,
+                `Revenue: $${p.revenue}M`
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Relative Market Share (%) →', color: COLORS.ink, font: { family: 'JetBrains Mono', size: 11 } },
+          min: 0, max: 12,
+          grid: { color: COLORS.line },
+          ticks: { color: COLORS.ink, font: { family: 'JetBrains Mono', size: 10 } }
+        },
+        y: {
+          title: { display: true, text: 'Market Growth (%) →', color: COLORS.ink, font: { family: 'JetBrains Mono', size: 11 } },
+          min: -2, max: 30,
+          grid: { color: COLORS.line },
+          ticks: { color: COLORS.ink, font: { family: 'JetBrains Mono', size: 10 } }
+        }
+      }
+    }
+  });
+}
+
+function initGraphsPage() {
+  if (graphsInitialised) return;
+  initPLC();
+  initMarket();
+  initBreakEven();
+  initBoston();
+  graphsInitialised = true;
+}
+
+</script>
+</body>
+</html>
